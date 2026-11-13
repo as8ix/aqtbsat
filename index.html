@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>استوديو وَدَق للمقولات | محرر قوالب خط ثمانية</title>
+
+  <!-- خطوط عربية أدبية وخطاطية مكملة (Alyamama, Zain, AMoshref Thulth وغيرها بدون الخطوط المستبعدة) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alyamama:wght@300..800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Fustat:wght@300;400;600;700&family=Gulzar&family=Katibeh&family=Kufam:wght@400;600;700&family=Rakkas&family=Reem+Kufi:wght@400;600;700&family=Scheherazade+New:wght@400;700&family=Zain:wght@200;300;400;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/amoshref-thulth/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/amoshref-naskh/all.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/theyearofthecamel/all.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/mokhtarbsaid/rare-arabic-fonts/theyearofhandicrafts/all.min.css">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- شريط علوي للاستوديو -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-badge">وَدَق</div>
+      <div class="brand-info">
+        <h1>استوديو المقولات العربي</h1>
+        <span class="badge-pill">النسخة التجريبية • قالب البطاقتين المتداخلتين + خط ثمانية</span>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button id="btnResetDefault" class="btn btn-ghost" title="استعادة النص والتصميم الأصلي للصورة الرابعة">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+          <path d="M3 3v5h5" />
+        </svg>
+        <span>استعادة الأصل</span>
+      </button>
+
+      <button id="btnSaveTemplate" class="btn btn-secondary" title="حفظ الإعدادات الحالية كقالب جاهز">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+          <polyline points="17 21 17 13 7 13 7 21" />
+          <polyline points="7 3 7 8 15 8" />
+        </svg>
+        <span>حفظ كقالب</span>
+      </button>
+
+      <div class="export-group">
+        <select id="exportScaleSelect" class="export-scale-select" title="دقة التصدير">
+          <option value="1">1080×1920 (HD)</option>
+          <option value="2" selected>2160×3840 (Ultra 4K)</option>
+        </select>
+        <button id="btnExportPng" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span>تصدير PNG</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- مساحة العمل الرئيسية -->
+  <main class="workspace">
+    <!-- لوحة التحكم الجانبية (المدخلات والخصائص) -->
+    <aside class="sidebar">
+      <!-- تبويبات التنقل السريع (مفيدة جداً للجوال والكمبيوتر) -->
+      <nav class="sidebar-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="tab-content">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 6.1H3" />
+            <path d="M21 12.1H3" />
+            <path d="M15.1 18H3" />
+          </svg>
+          <span>النصوص</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-thmanyah">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+          </svg>
+          <span>الكشيدة والخطوط</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-style">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r=".5" />
+            <circle cx="17.5" cy="10.5" r=".5" />
+            <circle cx="8.5" cy="7.5" r=".5" />
+            <circle cx="6.5" cy="12.5" r=".5" />
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+          </svg>
+          <span>الألوان والبطاقات</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-templates">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M3 9h18" />
+            <path d="M9 21V9" />
+          </svg>
+          <span>القوالب والشعار</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-body">
+        <!-- التبويب 1: النصوص والمحتوى -->
+        <section id="tab-content" class="tab-panel active">
+          <!-- البطاقة العلوية: بيت الشعر / المقولة -->
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">١</span>
+              <div>
+                <h3>البطاقة العلوية (بيت الشعر / العنوان)</h3>
+                <p>كل سطر يظهر في سطر مستقل داخل البطاقة الداكنة</p>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div class="label-with-action">
+                <label for="inputQuote">نص البيت أو المقولة الرئيسية</label>
+                <label for="inputTopCardBgImage" class="mini-btn" style="cursor:pointer;">🖼️ وضع صورة بالخلفية الخضراء</label>
+              </div>
+              <textarea id="inputQuote" rows="2" placeholder="اكتب بيت الشعر أو العنوان هنا...">وكيفَ أَغفى
+بليلٍ تسمَرينَ بهِ</textarea>
+            </div>
+
+            <!-- مشكّل كلمات العنوان التفاعلي (ميزة خط ثمانية الحصرية) -->
+            <div class="word-shaper-box">
+              <div class="shaper-header">
+                <span class="shaper-title">✨ لمسات خط ثمانية لكل كلمة في العنوان:</span>
+                <span class="shaper-hint">اضغط على أي كلمة لتفعيل (حرف مرسل) أو (كشيدة مائلة)</span>
+              </div>
+              <div id="quoteWordChips" class="word-chips-container"></div>
+              <div id="wordInspectorPanel" class="word-inspector-panel hidden">
+                <div class="inspector-word-Preview" id="inspectorWordLabel">الكلمة</div>
+                <div class="inspector-controls">
+                  <label class="toggle-chip">
+                    <input type="checkbox" id="chkWordSwash" />
+                    <span>حرف مرسل / كاف مبسوطة (ss01)</span>
+                  </label>
+                  <div class="kashida-stepper">
+                    <span>الكشيدة المائلة قبل آخر حرف:</span>
+                    <div class="stepper-btns">
+                      <button type="button" id="btnKashidaMinus" class="step-btn">−</button>
+                      <strong id="lblWordKashidaCount">0</strong>
+                      <button type="button" id="btnKashidaPlus" class="step-btn">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="thmanyahRuleWarning" class="rule-warning hidden"></div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="inputPoet">القائل / الشاعر</label>
+                <input type="text" id="inputPoet" value="-ابن خفاجة" placeholder="مثال: -ابن خفاجة" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangePoetLine">طول الخط بجانب القائل (<span id="valPoetLine">340</span>px)</label>
+                <input type="range" id="rangePoetLine" min="0" max="520" value="340" />
+              </div>
+            </div>
+          </div>
+
+          <!-- البطاقة السفلية: الشرح / المتن -->
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">٢</span>
+              <div>
+                <h3>البطاقة السفلية (الشرح والتعليق)</h3>
+                <p>يتم ضبط نهايات الأسطر تلقائياً بالكشيدة والأحرف المرسلة</p>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div class="label-with-action">
+                <label for="inputBody">نص الشرح / المتن</label>
+                <button type="button" id="btnInsertTatweelBody" class="mini-btn"
+                  title="إدراج رمز تطويل ـ في موضع المؤشر">+ إدراج كشيدة (ـ)</button>
+              </div>
+              <textarea id="inputBody" rows="6"
+                placeholder="اكتب النص أو الشرح هنا...">الاحتواءُ في هذا البيت ليس قولًا، بل حالٌ يسكن المعنى قبل اللفظ فأن لا يُغمِضَ عينه ما دامت تسهر، وأن لا يستسيغَ شرابًا لا يرويك، هو أن يُنزِلَ حاجته منزلةَ حاجتك ، ويجعل راحتك ميزان راحته هو احتواءٌ يرفض الاكتفاء بالنفس، ويؤمن أن الشبعَ ناقصٌ إن لم يتقاسمه قلبان، وأن السكينة لا تُؤخذ فرادى ، بل تُستعار من طمأنينة من نحب. في هذا البيت يتجلّى الزواجُ شركةَ شعور، لا يطيب فيها ليلٌ وفيه قلقٌ ، ولا تُطلب لذّةٌ إذا غاب عنها الآخر.</textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectSigMode">توقيع الكاتب أسفل الشرح</label>
+                <select id="selectSigMode">
+                  <option value="mask" selected>مخطوطة "-مومياشي-" الأصلية</option>
+                  <option value="text">نص مخصص بالخط</option>
+                  <option value="none">إخفاء التوقيع</option>
+                </select>
+              </div>
+              <div class="field-group flex-1" id="sigTextGroup">
+                <label for="inputSignature">نص التوقيع</label>
+                <input type="text" id="inputSignature" value="-مومياشي-" placeholder="-مومياشي-" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="inputCopyright">نص الحقوق السفلي (Footer)</label>
+              <input type="text" id="inputCopyright" value="COPYRIGHT © M.75T" dir="ltr" />
+            </div>
+          </div>
+        </section>
+
+        <!-- التبويب 2: الكشيدة الذكية والخطوط -->
+        <section id="tab-thmanyah" class="tab-panel">
+          <!-- إعدادات الكشيدة الذكية للفقرة -->
+          <div class="control-card highlight-card">
+            <div class="card-header">
+              <span class="step-num">✨</span>
+              <div>
+                <h3>محرك الكشيدة وموازنة الأسطر (مثل الإليستريتور)</h3>
+                <p>يطبق قواعد دليل جماليات خط ثمانية تلقائياً على فقرة الشرح</p>
+              </div>
+            </div>
+
+            <div class="toggle-list">
+              <label class="switch-row">
+                <div>
+                  <strong>ضبط وموازنة الأسطر بالكشيدة المائلة تلقائياً</strong>
+                  <small>يمد الحرف قبل الأخير في الكلمات المناسبة ليتساوى طول كل سطر</small>
+                </div>
+                <input type="checkbox" id="chkAutoKashida" checked />
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>تفعيل الأحرف المرسلة الذكية في المتن (ss01)</strong>
+                  <small>يمد نهايات بعض الكلمات غير المتجاورة (مثل: في، ناقصٌ، يُنزل) لموازنة السطر</small>
+                </div>
+                <input type="checkbox" id="chkBodySmartSwash" checked />
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>تفعيل الفتحة الممتدة فوق الكشيدة (ss03-ss07)</strong>
+                  <small>يمد علامة الفتحة تلقائياً عندما توضع الكشيدة بعد حرف مفتوح</small>
+                </div>
+                <input type="checkbox" id="chkExtendedFatha" checked />
+              </label>
+            </div>
+
+            <div class="field-group" style="margin-top: 12px;">
+              <label for="rangeKashidaIntensity">
+                كثافة التطويل والكشيدة في المتن (<span id="valKashidaIntensity">85</span>%)
+              </label>
+              <input type="range" id="rangeKashidaIntensity" min="0" max="100" value="85" />
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectMaxKashidaPerWord">أقصى مد في الكلمة الواحدة</label>
+                <select id="selectMaxKashidaPerWord">
+                  <option value="1">قصير (١ كشيدة)</option>
+                  <option value="2">متوسط (٢ كشيدة)</option>
+                  <option value="3" selected>أصيل كما في الصورة (٣ كشيدات)</option>
+                  <option value="4">طويل (٤ كشيدات)</option>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="selectBodyAlign">محاذاة السطر الأخير</label>
+                <select id="selectBodyAlign">
+                  <option value="right">محاذاة لليمين (طبيعي)</option>
+                  <option value="justify" selected>مشدود بالكامل مثل الصورة</option>
+                  <option value="center">توسيط</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- اختيار الخطوط والأوزان والأحجام -->
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">أ</span>
+              <div>
+                <h3>خط وأبعاد العنوان (البطاقة العلوية)</h3>
+                <p>عائلات خط ثمانية الرسمية والخطوط الأدبية المختارة</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-2">
+                <label for="selectQuoteFont">خط بيت الشعر / العنوان</label>
+                <select id="selectQuoteFont">
+                  <optgroup label="✦ عائلة خط ثمانية الرسمية (مرفقة)">
+                    <option value="Thmanyah Serif Display" selected>خط ثمانية للعناوين (Thmanyah Serif Display)</option>
+                    <option value="Thmanyah Serif Text">خط ثمانية للنصوص (Thmanyah Serif Text)</option>
+                    <option value="Thmanyah Sans">خط ثمانية الرقمي (Thmanyah Sans)</option>
+                  </optgroup>
+                  <optgroup label="✦ خطوطك الخاصة والخطوط النادرة (Lyon, اليمامة، المشرف ثلث، زين...)">
+                    <option value="Lyon Arabic Display">خط ليون عربي للعناوين (Lyon Arabic Display)</option>
+                    <option value="Alyamama">خط اليمامة (Alyamama)</option>
+                    <option value="Zain">خط زين (Zain)</option>
+                    <option value="Ali Moshref Thulth">خط المشرف ثلث (AMoshref Thulth)</option>
+                    <option value="Ali Moshref Naskh">خط المشرف نسخ (AMoshref Naskh)</option>
+                    <option value="Somar Sans">خط سومر سانس (Somar Sans)</option>
+                    <option value="Basmalah">خط بسملة (Basmalah)</option>
+                    <option value="Masmak">خط المصمك (Masmak)</option>
+                    <option value="Tharwat Emara Ruqaa">خط ثروت عمارة رقعة (Tharwat Ruqaa)</option>
+                    <option value="SF Ruqah Loop">خط رقعة لوب (SF Ruqah Loop)</option>
+                    <option value="A Suls">خط الثلث الكلاسيكي (A Suls)</option>
+                    <option value="The year of the camel">خط عام الإبل (Year of the Camel)</option>
+                    <option value="The year of handicrafts">خط عام الحرف اليدوية (Handicrafts)</option>
+                    <option value="29LT Zarid Display">خط 29LT Zarid Display</option>
+                    <option value="Lafeef">خط لفيف (Lafeef)</option>
+                    <option value="Samarqand">خط سمرقند (Samarqand)</option>
+                    <option value="Ghaith Sans">خط غيث سانس (Ghaith Sans)</option>
+                  </optgroup>
+                  <optgroup label="✦ خطوط أدبية وتراثية إضافية">
+                    <option value="Amiri">خط أميري الكلاسيكي (Amiri)</option>
+                    <option value="Aref Ruqaa">خط عارف رقعة (Aref Ruqaa)</option>
+                    <option value="Katibeh">خط كتيبة (Katibeh)</option>
+                    <option value="Rakkas">خط رقاص الديواني (Rakkas)</option>
+                    <option value="Reem Kufi">خط ريم كوفي (Reem Kufi)</option>
+                    <option value="Scheherazade New">خط شهرزاد النسخي (Scheherazade)</option>
+                    <option value="Gulzar">خط كلزار نستعليق (Gulzar)</option>
+                    <option value="Fustat">خط فسطاط (Fustat)</option>
+                    <option value="Kufam">خط كوفام (Kufam)</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="selectQuoteWeight">وزن الخط</label>
+                <select id="selectQuoteWeight">
+                  <option value="300">خفيف (300)</option>
+                  <option value="400">عادي (400)</option>
+                  <option value="500" selected>متوسط (500)</option>
+                  <option value="700">عريض (700)</option>
+                  <option value="900">أسود ثقيل (900)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeQuoteSize">حجم خط البيت (<span id="valQuoteSize">100</span>px)</label>
+                <input type="range" id="rangeQuoteSize" min="54" max="150" value="100" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeQuoteLineHeight">تباعد أسطر البيت (<span id="valQuoteLineHeight">1.42</span>)</label>
+                <input type="range" id="rangeQuoteLineHeight" min="1.0" max="2.1" step="0.02" value="1.42" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangePoetSize">حجم خط الشاعر (<span id="valPoetSize">38</span>px)</label>
+                <input type="range" id="rangePoetSize" min="22" max="68" value="38" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeQuoteWidth">عرض كتلة البيت (<span id="valQuoteWidth">720</span>px)</label>
+                <input type="range" id="rangeQuoteWidth" min="500" max="860" value="720" />
+              </div>
+            </div>
+          </div>
+
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">ب</span>
+              <div>
+                <h3>خط وأبعاد الشرح (البطاقة السفلية)</h3>
+                <p>التحكم الدقيق بحجم النص وتباعد الأسطر وعرض العمود</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-2">
+                <label for="selectBodyFont">خط فقرة الشرح</label>
+                <select id="selectBodyFont">
+                  <optgroup label="✦ عائلة خط ثمانية الرسمية (مرفقة)">
+                    <option value="Thmanyah Sans" selected>خط ثمانية الرقمي (Thmanyah Sans)</option>
+                    <option value="Thmanyah Serif Text">خط ثمانية للنصوص (Thmanyah Serif Text)</option>
+                    <option value="Thmanyah Serif Display">خط ثمانية للعناوين (Thmanyah Serif Display)</option>
+                  </optgroup>
+                  <optgroup label="✦ خطوطك الخاصة والخطوط النادرة (Lyon, اليمامة، زين، سومر...)">
+                    <option value="Zain">خط زين (Zain)</option>
+                    <option value="Alyamama">خط اليمامة (Alyamama)</option>
+                    <option value="Somar Sans">خط سومر سانس (Somar Sans)</option>
+                    <option value="Lyon Arabic Display">خط ليون عربي (Lyon Arabic Display)</option>
+                    <option value="Ali Moshref Naskh">خط المشرف نسخ (AMoshref Naskh)</option>
+                    <option value="The year of the camel">خط عام الإبل (Year of the Camel)</option>
+                    <option value="The year of handicrafts">خط عام الحرف اليدوية (Handicrafts)</option>
+                    <option value="Ghaith Sans">خط غيث سانس (Ghaith Sans)</option>
+                    <option value="Lafeef">خط لفيف (Lafeef)</option>
+                    <option value="29LT Zarid Display">خط 29LT Zarid Display</option>
+                  </optgroup>
+                  <optgroup label="✦ خطوط أدبية وتراثية إضافية">
+                    <option value="Amiri">خط أميري الكلاسيكي (Amiri)</option>
+                    <option value="Scheherazade New">خط شهرزاد النسخي (Scheherazade)</option>
+                    <option value="Fustat">خط فسطاط (Fustat)</option>
+                    <option value="Aref Ruqaa">خط عارف رقعة (Aref Ruqaa)</option>
+                    <option value="Kufam">خط كوفام (Kufam)</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="selectBodyWeight">وزن الخط</label>
+                <select id="selectBodyWeight">
+                  <option value="300" selected>خفيف أنيق (300)</option>
+                  <option value="400">عادي (400)</option>
+                  <option value="500">متوسط (500)</option>
+                  <option value="700">عريض (700)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeBodySize">حجم خط الشرح (<span id="valBodySize">37</span>px)</label>
+                <input type="range" id="rangeBodySize" min="24" max="62" step="0.5" value="37" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeBodyLineHeight">تباعد الأسطر (<span id="valBodyLineHeight">2.08</span>)</label>
+                <input type="range" id="rangeBodyLineHeight" min="1.3" max="2.6" step="0.02" value="2.08" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="rangeBodyWidth">عرض عمود الفقرة (<span id="valBodyWidth">742</span>px)</label>
+              <input type="range" id="rangeBodyWidth" min="520" max="860" value="742" />
+            </div>
+
+            <!-- رفع خط مخصص من الجهاز أو الجوال -->
+            <div class="upload-font-bar">
+              <label for="inputFontUpload" class="btn btn-outline-full">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+                <span>+ رفع ملف خط إضافي من جهازك (TTF / OTF / WOFF2)</span>
+              </label>
+              <input type="file" id="inputFontUpload" accept=".ttf,.otf,.woff,.woff2" hidden />
+            </div>
+          </div>
+        </section>
+
+        <!-- التبويب 3: الألوان والبطاقات -->
+        <section id="tab-style" class="tab-panel">
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">🎨</span>
+              <div>
+                <h3>لوحات الألوان الجاهزة (Palettes)</h3>
+                <p>اضغط لتجربة تناغمات لونية مستوحاة من صورك</p>
+              </div>
+            </div>
+
+            <div class="palette-grid" id="paletteGrid">
+              <button type="button" class="palette-chip active" data-palette="emerald-sage">
+                <span class="pal-swatches">
+                  <i style="background:#F5F1E8"></i>
+                  <i style="background:#023222"></i>
+                  <i style="background:#5C7265"></i>
+                </span>
+                <span>أخضر وَدَق الأصلي</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="navy-slate">
+                <span class="pal-swatches">
+                  <i style="background:#F2EFE9"></i>
+                  <i style="background:#1F2F42"></i>
+                  <i style="background:#4A5D73"></i>
+                </span>
+                <span>كحلي "ليس لشيء"</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="deep-olive">
+                <span class="pal-swatches">
+                  <i style="background:#F4F2EC"></i>
+                  <i style="background:#1B2A1E"></i>
+                  <i style="background:#6B7766"></i>
+                </span>
+                <span>زيتوني دافئ</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="burgundy-sand">
+                <span class="pal-swatches">
+                  <i style="background:#F6F1EB"></i>
+                  <i style="background:#3B141A"></i>
+                  <i style="background:#7A5458"></i>
+                </span>
+                <span>عنابي كلاسيكي</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="charcoal-stone">
+                <span class="pal-swatches">
+                  <i style="background:#F3F1ED"></i>
+                  <i style="background:#181B1A"></i>
+                  <i style="background:#575E5B"></i>
+                </span>
+                <span>فحمي ثمانية</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="night-emerald">
+                <span class="pal-swatches">
+                  <i style="background:#071F16"></i>
+                  <i style="background:#0F3B29"></i>
+                  <i style="background:#F5F1E8"></i>
+                </span>
+                <span>ليلي معكوس</span>
+              </button>
+            </div>
+
+            <div class="color-pickers-grid">
+              <div class="color-field">
+                <label>خلفية التصميم</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorBg" value="#F5F1E8" />
+                  <input type="text" id="hexBg" value="#F5F1E8" dir="ltr" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <label>البطاقة العلوية</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorTopCard" value="#023222" />
+                  <input type="text" id="hexTopCard" value="#023222" dir="ltr" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <label>البطاقة السفلية</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorBottomCard" value="#5C7265" />
+                  <input type="text" id="hexBottomCard" value="#5C7265" dir="ltr" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <label>لون نص العنوان</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorQuoteText" value="#F5F1E8" />
+                  <input type="text" id="hexQuoteText" value="#F5F1E8" dir="ltr" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <label>لون نص الشرح</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorBodyText" value="#F5F1E8" />
+                  <input type="text" id="hexBodyText" value="#F5F1E8" dir="ltr" />
+                </div>
+              </div>
+
+              <div class="color-field">
+                <label>لون شعار "أشير"</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorLogo" value="#157A4E" />
+                  <input type="text" id="hexLogo" value="#157A4E" dir="ltr" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-card highlight-card">
+            <div class="card-header">
+              <span class="step-num">🖼️</span>
+              <div>
+                <h3>صورة خلفية البطاقة الخضراء (العلوية)</h3>
+                <p>ضع صورة داخل المساحة الخضراء ويظهر النص فوقها بوضوح</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <label for="inputTopCardBgImage" class="btn btn-outline-full flex-2" style="margin:0;">
+                + اختر صورة لخلفية البطاقة الخضراء
+              </label>
+              <input type="file" id="inputTopCardBgImage" accept="image/*" hidden />
+              <button type="button" id="btnRemoveTopCardBgImage" class="btn btn-ghost hidden" style="color:#f87171; border-color:rgba(248,113,113,0.3);">
+                حذف الصورة ×
+              </button>
+            </div>
+
+            <div class="field-group">
+              <label for="selectTopCardStyle">نمط المساحة الخضراء / الصورة العلوية</label>
+              <select id="selectTopCardStyle">
+                <option value="card" selected>بطاقة بإطار وحواف دائرية (قالب وكيف أغفى)</option>
+                <option value="full-bleed">ممتدة لكامل الجزء العلوي (قالب ما وراء الخلق)</option>
+              </select>
+            </div>
+
+            <div id="topCardImageControls" class="hidden" style="display:flex; flex-direction:column; gap:10px; padding-top:8px; border-top:1px solid var(--border-subtle);">
+              <div class="shaper-title">🎯 موضع الصورة وحجمها</div>
+              <small style="color:var(--text-muted); margin-top:-6px;">تقدر كمان تسحب الصورة بالماوس أو بإصبعك مباشرة على المعاينة</small>
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgZoom">تكبير الصورة (<span id="valTopCardImgZoom">100</span>%)</label>
+                  <input type="range" id="rangeTopCardImgZoom" min="100" max="300" value="100" />
+                </div>
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgX">أفقياً (<span id="valTopCardImgX">0</span>%)</label>
+                  <input type="range" id="rangeTopCardImgX" min="-100" max="100" value="0" />
+                </div>
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgY">عمودياً (<span id="valTopCardImgY">0</span>%)</label>
+                  <input type="range" id="rangeTopCardImgY" min="-100" max="100" value="0" />
+                </div>
+              </div>
+
+              <div class="shaper-title" style="margin-top:4px;">⚖️ توزين الصورة (الألوان والإضاءة)</div>
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgBrightness">السطوع (<span id="valTopCardImgBrightness">100</span>%)</label>
+                  <input type="range" id="rangeTopCardImgBrightness" min="20" max="180" value="100" />
+                </div>
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgContrast">التباين (<span id="valTopCardImgContrast">100</span>%)</label>
+                  <input type="range" id="rangeTopCardImgContrast" min="30" max="200" value="100" />
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgSaturation">التشبع (<span id="valTopCardImgSaturation">100</span>%)</label>
+                  <input type="range" id="rangeTopCardImgSaturation" min="0" max="200" value="100" />
+                </div>
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgWarmth">الدفء / البرودة (<span id="valTopCardImgWarmth">0</span>)</label>
+                  <input type="range" id="rangeTopCardImgWarmth" min="-60" max="60" value="0" />
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardImgBlur">تمويه الصورة (<span id="valTopCardImgBlur">0</span>px)</label>
+                  <input type="range" id="rangeTopCardImgBlur" min="0" max="24" step="0.5" value="0" />
+                </div>
+                <div class="field-group flex-1">
+                  <label for="rangeTopCardOverlay">تعتيم لوني لوضوح النص (<span id="valTopCardOverlay">42</span>%)</label>
+                  <input type="range" id="rangeTopCardOverlay" min="0" max="95" value="42" />
+                </div>
+              </div>
+
+              <label class="switch-row">
+                <div>
+                  <strong>تعتيم متدرّج (أخف أعلى الصورة وأغمق عند النص)</strong>
+                  <small>مثل قالب «من نعيم الدنيا» و«ما وراء الخلق»</small>
+                </div>
+                <input type="checkbox" id="chkTopCardOverlayGradient" />
+              </label>
+
+              <button type="button" id="btnResetImageAdjust" class="btn btn-ghost" style="justify-content:center;">
+                ↺ إعادة توزين الصورة للوضع الأصلي
+              </button>
+            </div>
+          </div>
+
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">📐</span>
+              <div>
+                <h3>أبعاد البطاقتين والظل</h3>
+                <p>تحكم بارتفاع البطاقة العلوية واستدارة الزوايا وقوة الظل</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeTopCardHeight">ارتفاع البطاقة العلوية (<span
+                    id="valTopCardHeight">585</span>px)</label>
+                <input type="range" id="rangeTopCardHeight" min="420" max="850" value="585" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeCardRadius">استدارة الحواف (<span id="valCardRadius">64</span>px)</label>
+                <input type="range" id="rangeCardRadius" min="0" max="120" value="64" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeShadowStrength">قوة ظل البطاقة العلوية (<span
+                    id="valShadowStrength">45</span>%)</label>
+                <input type="range" id="rangeShadowStrength" min="0" max="90" value="45" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeBodyOffsetY">موضع نص الشرح عمودياً (<span id="valBodyOffsetY">0</span>px)</label>
+                <input type="range" id="rangeBodyOffsetY" min="-100" max="120" value="0" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- التبويب 4: الشعار والزخارف والقوالب المحفوظة -->
+        <section id="tab-templates" class="tab-panel">
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">🏷️</span>
+              <div>
+                <h3>الشعار والزخارف الهندسية</h3>
+                <p>تحكم بشعار "أشير" والأيقونات الهندسية في الزوايا</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectLogoMode">نوع الشعار الأساسي (الأول)</label>
+                <select id="selectLogoMode">
+                  <option value="wadaq-mask" selected>شعار "أشير" الأصلي (مطابق للصورة)</option>
+                  <option value="custom-text">نص مكتوب بخط عربي</option>
+                  <option value="custom-image">صورة شعار مرفوعة (PNG/SVG)</option>
+                  <option value="none">إخفاء الشعار</option>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeLogoScale">حجم الشعار الأول (<span id="valLogoScale">100</span>%)</label>
+                <input type="range" id="rangeLogoScale" min="50" max="180" value="100" />
+              </div>
+            </div>
+
+            <div class="field-group hidden" id="logoTextGroup">
+              <label for="inputLogoText">نص الشعار الأول</label>
+              <input type="text" id="inputLogoText" value="أشير" />
+            </div>
+
+            <div class="field-group hidden" id="logoUploadGroup">
+              <label for="inputLogoUpload" class="btn btn-outline-full">+ اختر صورة الشعار الأول (PNG / SVG)</label>
+              <input type="file" id="inputLogoUpload" accept="image/*" hidden />
+            </div>
+
+            <!-- قائمة الشعارات الإضافية + التحكم بالخط الفاصل بينها -->
+            <div class="word-shaper-box" style="margin-top: 6px;">
+              <div class="label-with-action">
+                <span class="shaper-title">➕ شعارات إضافية بجانب الشعار الأساسي</span>
+                <button type="button" id="btnAddExtraLogo" class="mini-btn">+ إضافة شعار آخر</button>
+              </div>
+
+              <div id="extraLogosContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+              <!-- إعدادات الخط الفاصل بين الشعارات (تظهر عند وجود أكثر من شعار) -->
+              <div id="logoDividerControls" class="hidden"
+                style="display:flex; flex-direction:column; gap:10px; padding-top:10px; border-top:1px solid var(--border-subtle);">
+                <div class="shaper-title" style="color: var(--text-main);">📏 إعدادات الخط الفاصل بين الشعارات</div>
+                <div class="field-row">
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoDividerLength">طول الخط الفاصل (<span
+                        id="valLogoDividerLength">52</span>px)</label>
+                    <input type="range" id="rangeLogoDividerLength" min="10" max="130" value="52" />
+                  </div>
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoDividerThickness">عرض / سماكة الخط (<span
+                        id="valLogoDividerThickness">2.5</span>px)</label>
+                    <input type="range" id="rangeLogoDividerThickness" min="0.5" max="14" step="0.5" value="2.5" />
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoDividerGap">المسافة حول الخط (<span id="valLogoDividerGap">26</span>px)</label>
+                    <input type="range" id="rangeLogoDividerGap" min="6" max="70" value="26" />
+                  </div>
+                  <div class="color-field flex-1">
+                    <label>لون الخط الفاصل</label>
+                    <div class="color-input-wrap">
+                      <input type="color" id="colorLogoDivider" value="#157A4E" />
+                      <input type="text" id="hexLogoDivider" value="#157A4E" dir="ltr" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- إعدادات خلفية الشعار (لون الخلفية + الحدة/الدائرية + المساحة الداخلية) -->
+            <div class="word-shaper-box" style="margin-top: 6px;">
+              <label class="switch-row" style="background: transparent; border: none; padding: 2px 0;">
+                <div>
+                  <strong>إضافة خلفية ملونة للشعار</strong>
+                  <small>إطار/خلفية خلف الشعار مع تحكم باللون والحدة أو الدائرية</small>
+                </div>
+                <input type="checkbox" id="chkLogoBgEnabled" />
+              </label>
+
+              <div id="logoBgControls" class="hidden"
+                style="display:flex; flex-direction:column; gap:10px; padding-top:8px; border-top:1px solid var(--border-subtle);">
+                <div class="field-row">
+                  <div class="color-field flex-1">
+                    <label>لون خلفية الشعار</label>
+                    <div class="color-input-wrap">
+                      <input type="color" id="colorLogoBg" value="#023222" />
+                      <input type="text" id="hexLogoBg" value="#023222" dir="ltr" />
+                    </div>
+                  </div>
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoBgPadding">حجم الخلفية حول الشعار (<span
+                        id="valLogoBgPadding">22</span>px)</label>
+                    <input type="range" id="rangeLogoBgPadding" min="6" max="60" value="22" />
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoBgRadius">حدة / دائرية الإطار (<span id="valLogoBgRadius">50</span>%)</label>
+                    <input type="range" id="rangeLogoBgRadius" min="0" max="100" value="50" />
+                  </div>
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoBgOpacity">شفافية الإطار (<span id="valLogoBgOpacity">100</span>%)</label>
+                    <input type="range" id="rangeLogoBgOpacity" min="1" max="100" value="100" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- إعدادات ظل الشعار أو الإطار -->
+            <div class="word-shaper-box" style="margin-top: 6px;">
+              <div class="field-row">
+                <div class="field-group flex-2">
+                  <label for="selectLogoShadowTarget">إضافة ظل للشعار أو للإطار</label>
+                  <select id="selectLogoShadowTarget">
+                    <option value="none" selected>بدون ظل</option>
+                    <option value="logo">ظل على الشعار نفسه</option>
+                    <option value="frame">ظل على إطار/خلفية الشعار</option>
+                    <option value="both">ظل على الشعار والإطار معاً</option>
+                  </select>
+                </div>
+                <div class="color-field flex-1" id="logoShadowColorWrap">
+                  <label>لون الظل</label>
+                  <div class="color-input-wrap">
+                    <input type="color" id="colorLogoShadow" value="#000000" />
+                    <input type="text" id="hexLogoShadow" value="#000000" dir="ltr" />
+                  </div>
+                </div>
+              </div>
+
+              <div id="logoShadowControls" class="hidden"
+                style="display:flex; flex-direction:column; gap:10px; padding-top:8px; border-top:1px solid var(--border-subtle);">
+                <div class="field-row">
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoShadowStrength">قوة الظل (<span id="valLogoShadowStrength">38</span>%)</label>
+                    <input type="range" id="rangeLogoShadowStrength" min="5" max="100" value="38" />
+                  </div>
+                  <div class="field-group flex-1">
+                    <label for="rangeLogoShadowBlur">نعومة الظل (<span id="valLogoShadowBlur">18</span>px)</label>
+                    <input type="range" id="rangeLogoShadowBlur" min="0" max="50" value="18" />
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label for="rangeLogoShadowOffsetY">بُعد الظل العمودي (<span
+                      id="valLogoShadowOffsetY">8</span>px)</label>
+                  <input type="range" id="rangeLogoShadowOffsetY" min="-20" max="30" value="8" />
+                </div>
+              </div>
+            </div>
+
+            <div class="toggle-list" style="margin-top: 10px;">
+              <label class="switch-row">
+                <div>
+                  <strong>أيقونة المعين الهندسية العلوية (⊡)</strong>
+                  <small>المربع الصغير بداخله معين في أعلى يسار البطاقة العلوية</small>
+                </div>
+                <input type="checkbox" id="chkShowTopOrnament" checked />
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>أيقونة المثلثين المتقابلين السفلية (⋈)</strong>
+                  <small>العلامة الهندسية في أسفل يمين البطاقة السفلية</small>
+                </div>
+                <input type="checkbox" id="chkShowBottomOrnament" checked />
+              </label>
+            </div>
+          </div>
+
+          <!-- القوالب المحفوظة (Saved Templates) -->
+          <div class="control-card">
+            <div class="card-header">
+              <span class="step-num">💾</span>
+              <div>
+                <h3>قوالبي المحفوظة</h3>
+                <p>احفظ إعداداتك المفضلة واستعدها بضغطة واحدة، أو انقلها لجوالك</p>
+              </div>
+            </div>
+
+            <div id="savedTemplatesList" class="saved-templates-list"></div>
+
+            <div class="template-io-row">
+              <button type="button" id="btnExportTemplatesJson" class="btn btn-secondary flex-1">
+                تصدير القوالب (ملف JSON)
+              </button>
+              <label for="inputImportTemplatesJson" class="btn btn-ghost flex-1"
+                style="justify-content:center; cursor:pointer;">
+                استيراد قوالب
+              </label>
+              <input type="file" id="inputImportTemplatesJson" accept=".json" hidden />
+            </div>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <!-- منطقة المعاينة الحية (Canvas Artboard) -->
+    <section class="preview-stage">
+      <div class="stage-toolbar">
+        <div class="stage-status">
+          <span class="status-dot"></span>
+          <span>معاينة حية مطابقة للتصدير (1080 × 1920 px)</span>
+        </div>
+        <div class="zoom-controls">
+          <button type="button" id="btnZoomOut" class="icon-btn" title="تصغير المعاينة">−</button>
+          <span id="lblZoomPercent">100%</span>
+          <button type="button" id="btnZoomIn" class="icon-btn" title="تكبير المعاينة">+</button>
+          <button type="button" id="btnZoomFit" class="mini-btn">ملاءمة الشاشة</button>
+        </div>
+      </div>
+
+      <div class="canvas-viewport" id="canvasViewport">
+        <div class="artboard-wrapper" id="artboardWrapper">
+          <!-- لوحة الرسم الفائقة الدقة -->
+          <canvas id="quoteCanvas" width="1080" height="1920"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="local-fonts.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
