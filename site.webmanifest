@@ -1,0 +1,25 @@
+{
+  "name": "استوديو أَشِير للمقولات | ASHEER Studio",
+  "short_name": "أَشِير",
+  "description": "منصة واستوديو أَشِير لتصميم المقولات العربية، الأبيات الشعرية، والبطاقات التحريرية الفاخرة بالكشيدة الذكية ودقة Ultra 4K.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a110e",
+  "theme_color": "#0d231a",
+  "icons": [
+    {
+      "src": "assets/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/asheer-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
