@@ -100,11 +100,12 @@
     </div>
 
     <div class="topbar-actions">
-      <!-- مبدل القوالب الأربعة السريع -->
+      <!-- مبدل القوالب الخمسة السريع -->
       <div class="field-group" style="margin:0;">
-        <select id="selectTemplatePreset" class="export-scale-select" title="التبديل بين القوالب التحريرية الجاهزة" style="font-weight:700;">
+        <select id="selectTemplatePreset" class="asheer-dropbox export-scale-select" title="التبديل بين القوالب التحريرية الجاهزة" style="font-weight:700;">
           <option value="4">القالب ٤: البطاقتين («وكيف أغفى»)</option>
           <option value="1">القالب ١: الكحلي المصمت («ليس لشيء»)</option>
+          <option value="5">القالب ٥: مقتبسات الكتب («الداء والدواء»)</option>
           <option value="2">القالب ٢: صورة وأبيات («من نعيم الدنيا»)</option>
           <option value="3">القالب ٣: مقالات وافتتاحية («ما وراء الخلق»)</option>
         </select>
@@ -128,7 +129,7 @@
       </button>
 
       <div class="export-group">
-        <select id="exportScaleSelect" class="export-scale-select" title="دقة التصدير">
+        <select id="exportScaleSelect" class="asheer-dropbox export-scale-select" title="دقة التصدير">
           <option value="1">1080×1920 (HD)</option>
           <option value="2" selected>2160×3840 (Ultra 4K)</option>
         </select>
@@ -174,7 +175,7 @@
             <path
               d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
           </svg>
-          <span>الألوان والبطاقات</span>
+          <span id="lblTabStyle">الألوان والبطاقات</span>
         </button>
         <button class="tab-btn" data-tab="tab-templates">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -190,19 +191,19 @@
         <!-- التبويب 1: النصوص والمحتوى -->
         <section id="tab-content" class="tab-panel active">
           <!-- البطاقة العلوية: بيت الشعر / المقولة -->
-          <div class="control-card">
+          <div class="control-card" id="step1ControlCard">
             <div class="card-header">
               <span class="step-num">١</span>
               <div>
-                <h3>البطاقة العلوية (بيت الشعر / العنوان)</h3>
-                <p>كل سطر يظهر في سطر مستقل داخل البطاقة الداكنة</p>
+                <h3 id="hdrStep1Title">البطاقة العلوية (بيت الشعر / العنوان)</h3>
+                <p id="hdrStep1Desc">كل سطر يظهر في سطر مستقل داخل البطاقة الداكنة</p>
               </div>
             </div>
 
             <div class="field-group">
               <div class="label-with-action">
                 <label for="inputQuote">نص البيت أو المقولة الرئيسية</label>
-                <label for="inputTopCardBgImage" class="mini-btn" style="cursor:pointer;">🖼️ وضع صورة بالخلفية الخضراء</label>
+                <label for="inputTopCardBgImage" id="lblQuickUploadBg" class="mini-btn" style="cursor:pointer;">🖼️ وضع صورة بالخلفية الخضراء</label>
               </div>
               <textarea id="inputQuote" rows="2" placeholder="اكتب بيت الشعر أو العنوان هنا...">وكيفَ أَغفى
 بليلٍ تسمَرينَ بهِ</textarea>
@@ -235,12 +236,12 @@
               <div id="thmanyahRuleWarning" class="rule-warning hidden"></div>
             </div>
 
-            <div class="field-row">
+            <div class="field-row" id="poetControlsRow">
               <div class="field-group flex-1">
                 <label for="inputPoet">القائل / الشاعر</label>
                 <input type="text" id="inputPoet" value="-ابن خفاجة" placeholder="مثال: -ابن خفاجة" />
               </div>
-              <div class="field-group flex-1">
+              <div class="field-group flex-1" id="poetLineGroup">
                 <label for="rangePoetLine">طول الخط بجانب القائل (<span id="valPoetLine">340</span>px)</label>
                 <input type="range" id="rangePoetLine" min="0" max="520" value="340" />
               </div>
@@ -252,14 +253,14 @@
             <div class="card-header">
               <span class="step-num">٢</span>
               <div>
-                <h3>البطاقة السفلية (الشرح والتعليق)</h3>
-                <p>يتم ضبط نهايات الأسطر تلقائياً بالكشيدة والأحرف المرسلة</p>
+                <h3 id="hdrStep2Title">البطاقة السفلية (الشرح والتعليق)</h3>
+                <p id="hdrStep2Desc">يتم ضبط نهايات الأسطر تلقائياً بالكشيدة والأحرف المرسلة</p>
               </div>
             </div>
 
             <div class="field-group">
               <div class="label-with-action">
-                <label for="inputBody">نص الشرح / المتن</label>
+                <label for="inputBody" id="lblInputBody">نص الشرح / المتن</label>
                 <button type="button" id="btnInsertTatweelBody" class="mini-btn"
                   title="إدراج رمز تطويل ـ في موضع المؤشر">+ إدراج كشيدة (ـ)</button>
               </div>
@@ -267,10 +268,10 @@
                 placeholder="اكتب النص أو الشرح هنا...">الاحتواءُ في هذا البيت ليس قولًا، بل حالٌ يسكن المعنى قبل اللفظ فأن لا يُغمِضَ عينه ما دامت تسهر، وأن لا يستسيغَ شرابًا لا يرويك، هو أن يُنزِلَ حاجته منزلةَ حاجتك ، ويجعل راحتك ميزان راحته هو احتواءٌ يرفض الاكتفاء بالنفس، ويؤمن أن الشبعَ ناقصٌ إن لم يتقاسمه قلبان، وأن السكينة لا تُؤخذ فرادى ، بل تُستعار من طمأنينة من نحب. في هذا البيت يتجلّى الزواجُ شركةَ شعور، لا يطيب فيها ليلٌ وفيه قلقٌ ، ولا تُطلب لذّةٌ إذا غاب عنها الآخر.</textarea>
             </div>
 
-            <div class="field-row">
+            <div class="field-row" id="sigControlsRow">
               <div class="field-group flex-1">
                 <label for="selectSigMode">توقيع الكاتب أسفل الشرح</label>
-                <select id="selectSigMode">
+                <select id="selectSigMode" class="asheer-dropbox">
                   <option value="mask" selected>مخطوطة "-مومياشي-" الأصلية</option>
                   <option value="text">نص مخصص بالخط</option>
                   <option value="none">إخفاء التوقيع</option>
@@ -282,10 +283,162 @@
               </div>
             </div>
 
-            <div class="field-group">
+            <div class="field-group" id="copyrightFieldGroup">
               <label for="inputCopyright">نص الحقوق السفلي (Footer)</label>
               <input type="text" id="inputCopyright" value="COPYRIGHT © M.75T" dir="ltr" />
             </div>
+          </div>
+
+          <!-- لوحة إعدادات القالب ٥ (قالب مقتبسات الكتب: «الداء والدواء») -->
+          <div class="control-card highlight-card hidden" id="template5ControlsCard">
+            <div class="card-header">
+              <span class="step-num">📚</span>
+              <div>
+                <h3>عناوين الكتبوصورة اسم الكتاب</h3>
+                <p>اختر الكتاب من القائمة أو ارفع صورة اسم الكتاب مباشرة</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-2">
+                <label for="selectT5BookId">عنوان الكتاب المعتمد</label>
+                <select id="selectT5BookId" class="asheer-dropbox">
+                  <optgroup label="✦ الإمام ابن قيم الجوزية" id="t5BooksOptgroup">
+                    <option value="daa-wa-dawaa" selected>الداء والدواء</option>
+                    <option value="zad-al-maad">زاد المعاد في هدي خير العباد</option>
+                    <option value="madarij-al-salikin">مدارج السالكين في منازل السائرين</option>
+                    <option value="al-ikseer">الإكسير (خلاصة أعمال القلوب من مدارج السالكين)</option>
+                    <option value="al-fawaid">الفوائد</option>
+                    <option value="badai-al-fawaid">بدائع الفوائد</option>
+                    <option value="uddat-al-sabirin">عدة الصابرين وذخيرة الشاكرين</option>
+                    <option value="tariq-al-hijratayn">طريق الهجرتين وباب السعادتين</option>
+                    <option value="jala-al-afham">جلاء الأفهام في فضل الصلاة والسلام</option>
+                    <option value="rawdat-al-muhibbin">روضة المحبين ونزهة المشتاقين</option>
+                    <option value="hadi-al-arwah">حادي الأرواح إلى بلاد الأفراح</option>
+                    <option value="ighathat-al-lahfan">إغاثة اللهفان في مصايد الشيطان</option>
+                    <option value="ilam-al-muwaqqiin">إعلام الموقعين عن رب العالمين</option>
+                    <option value="risalat-ibn-al-qayyim">رسالة ابن القيم إلى أحد إخوانه</option>
+                  </optgroup>
+                  <optgroup label="✦ الإمام ابن الجوزي">
+                    <option value="sayd-al-khatir">صيد الخاطر</option>
+                    <option value="talbis-iblis">تلبيس إبليس</option>
+                  </optgroup>
+                  <optgroup label="✦ الإمام ابن قدامة المقدسي">
+                    <option value="mukhtasar-minhaj">مختصر منهاج القاصدين</option>
+                  </optgroup>
+                  <optgroup label="✦ الحافظ ابن كثير">
+                    <option value="al-bidaya">البداية والنهاية</option>
+                  </optgroup>
+                  <optgroup label="✦ المؤرخ عز الدين ابن الأثير">
+                    <option value="al-kamil">الكامل في التاريخ</option>
+                  </optgroup>
+                  <optgroup label="✦ العلامة عبد الرحمن بن ناصر السعدي">
+                    <option value="taysir-al-karim-al-rahman">تيسير الكريم الرحمن في تفسير كلام المنان</option>
+                  </optgroup>
+                  <optgroup label="✦ الشيخ بكر أبو زيد والشيخ ابن عثيمين">
+                    <option value="sharh-hilyat-talib-al-ilm">شرح حلية طالب العلم</option>
+                  </optgroup>
+                  <optgroup label="✦ الشيخ علي الطنطاوي">
+                    <option value="rijal-min-tarikh">رجال من التاريخ</option>
+                    <option value="qisas-min-tarikh">قصص من التاريخ</option>
+                    <option value="suwar-wa-khawatir">صور وخواطر</option>
+                  </optgroup>
+                  <optgroup label="✦ نخبة من العلماء (مجمع الملك فهد)">
+                    <option value="al-tafsir-al-muyassar">التفسير الميسر</option>
+                  </optgroup>
+                  <optgroup label="✦ أ. راكان بن عدنان المغربي">
+                    <option value="rihlat-al-istiqama">رحلة الاستقامة</option>
+                  </optgroup>
+                  <optgroup label="✦ كتب مخصصة محفوظة" id="t5SavedBooksOptgroup"></optgroup>
+                  <optgroup label="✦ تخصيص أو رفع جديد">
+                    <option value="custom-image">🖼️ صورة اسم كتاب مرفوعة من جهازك</option>
+                    <option value="custom-text">✍️ كتابة عنوان كتاب ومؤلف بالخط</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="field-group flex-1" id="t5StampModeGroup">
+                <label for="selectT5StampMode">عرض المؤلف</label>
+                <select id="selectT5StampMode" class="asheer-dropbox">
+                  <option value="full" selected>المخطوطة كاملة</option>
+                  <option value="title-only">اسم الكتاب فقط</option>
+                  <option value="custom-author">+ كتابة المؤلف تحتها</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- زر مباشر وبارز لرفع صورة اسم الكتاب في أي وقت -->
+            <div class="field-group" id="t5BookStampUploadGroup" style="background: rgba(25, 169, 116, 0.06); border: 1px dashed var(--border-highlight); border-radius: 10px; padding: 10px;">
+              <div class="label-with-action" style="margin-bottom: 6px;">
+                <label style="color: var(--accent-bright); font-weight: 700;">🖼️ صورة اسم الكتاب / المخطوطة</label>
+                <button type="button" id="btnRemoveT5BookStamp" class="mini-btn hidden" style="color:#f87171; border-color:rgba(248,113,113,0.3);">
+                  ✕ حذف الصورة
+                </button>
+              </div>
+              <label for="inputT5BookStampUpload" class="btn btn-outline-full" style="cursor:pointer; margin-bottom: 6px;">
+                📤 + رفع صورة اسم الكتاب من جهازك (PNG / JPG)
+              </label>
+              <input type="file" id="inputT5BookStampUpload" accept="image/*" hidden />
+              <label class="toggle-chip" id="t5AutoCleanBgWrap" style="justify-content: space-between; width: 100%; padding: 6px 10px; font-size: 11.5px;">
+                <span>تفريغ الخلفية البيضاء تلقائياً وتلوين المخطوطة بلون الحبر</span>
+                <input type="checkbox" id="chkT5AutoCleanBg" checked />
+              </label>
+            </div>
+
+            <!-- حقول تخصيص عنوان الكتاب أو المؤلف -->
+            <div id="t5CustomBookFields" class="hidden" style="display:flex; flex-direction:column; gap:10px; padding-top:8px; border-top:1px solid var(--border-subtle);">
+              <div class="field-group" id="t5BookTitleInputGroup">
+                <label for="inputT5BookTitle">اسم الكتاب (للعرض أو للحفظ في القائمة)</label>
+                <input type="text" id="inputT5BookTitle" value="الدَّاءُ وَالدَّوَاءُ" placeholder="مثال: مدارج السالكين" />
+              </div>
+
+              <div id="t5BookAuthorFieldsGroup" style="display:flex; flex-direction:column; gap:8px;">
+                <div class="field-row" id="t5BookAuthorRow">
+                  <div class="field-group flex-1">
+                    <label for="inputT5BookSubtitle">كلمة التقديم</label>
+                    <input type="text" id="inputT5BookSubtitle" value="تأليف" placeholder="تأليف" />
+                  </div>
+                  <div class="field-group flex-1">
+                    <label for="inputT5BookYears">سنوات المؤلف</label>
+                    <input type="text" id="inputT5BookYears" value="( ٦٩١ - ٧٥١ )" placeholder="( ٦٩١ - ٧٥١ )" />
+                  </div>
+                </div>
+
+                <div class="field-group" id="t5BookAuthorNameGroup">
+                  <label for="inputT5BookAuthor">اسم المؤلف الكامل</label>
+                  <input type="text" id="inputT5BookAuthor" value="الإمَامِ أَبِي عَبْدِ اللهِ محَمَّدِ بْنِ أَبِي بَكْرِ بْنِ أَيُّوبَ ابْنِ قَيِّمِ الجَوْزِيَّةِ" />
+                </div>
+              </div>
+
+              <button type="button" id="btnT5SaveBookToLibrary" class="mini-btn" style="align-self:flex-start; padding:6px 12px;">
+                + حفظ هذا الكتاب في قائمة الكتب المعتمدة
+              </button>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeT5StampScale">حجم اسم الكتاب (<span id="valT5StampScale">100</span>%)</label>
+                <input type="range" id="rangeT5StampScale" min="45" max="175" value="100" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT5StampY">موضع عمودي (<span id="valT5StampY">0</span>px)</label>
+                <input type="range" id="rangeT5StampY" min="-180" max="180" value="0" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeT5StampX">موضع أفقي لاسم الكتاب (<span id="valT5StampX">0</span>px)</label>
+                <input type="range" id="rangeT5StampX" min="-240" max="240" value="0" />
+              </div>
+            </div>
+
+            <label class="switch-row">
+              <div>
+                <strong>مسافة بادئة في أول سطر (نظام طباعة الكتب)</strong>
+                <small>إزاحة بداية السطر الأول من الفقرة قليلاً لليسار كما في الكتب التراثية</small>
+              </div>
+              <input type="checkbox" id="chkT5FirstLineIndent" checked />
+            </label>
           </div>
 
           <!-- لوحة إعدادات القالب ١ (الكرت الكحلي المصمت: «ليس لشيء») -->
@@ -294,7 +447,7 @@
               <span class="step-num">💎</span>
               <div>
                 <h3>عناصر القالب الكحلي («ليس لشيء»)</h3>
-                <p>التحكم بالمعينات الثلاثة، النص الإنجليزي الموازي، وشريط الفوتر الرباعي والباركود</p>
+                <p>التحكم بالمعينات الثلاثة، النص الإنجليزي الموازي، وشريط الفوتر السفلي</p>
               </div>
             </div>
 
@@ -304,8 +457,8 @@
                 <input type="checkbox" id="chkT1ShowDiamonds" checked />
               </label>
               <div class="field-group flex-1">
-                <label for="rangeT1DiamondSize">حجم المعينات (<span id="valT1DiamondSize">22</span>px)</label>
-                <input type="range" id="rangeT1DiamondSize" min="10" max="42" value="22" />
+                <label for="rangeT1DiamondSize">حجم المعينات (<span id="valT1DiamondSize">20</span>px)</label>
+                <input type="range" id="rangeT1DiamondSize" min="10" max="42" value="20" />
               </div>
             </div>
 
@@ -325,16 +478,16 @@ in His gardens—that is my joy, O you whom I love</textarea>
 
             <div class="field-row">
               <div class="field-group flex-1">
-                <label for="rangeT1EnglishSize">حجم النص الإنجليزي (<span id="valT1EnglishSize">20</span>px)</label>
-                <input type="range" id="rangeT1EnglishSize" min="14" max="34" value="20" />
+                <label for="rangeT1EnglishSize">حجم النص الإنجليزي (<span id="valT1EnglishSize">17</span>px)</label>
+                <input type="range" id="rangeT1EnglishSize" min="14" max="34" value="17" />
               </div>
             </div>
 
-            <div class="shaper-title" style="margin-top:4px;">🏷️ شريط الفوتر السفلي الرباعي والباركود</div>
+            <div class="shaper-title" style="margin-top:4px;">🏷️ شريط الفوتر السفلي الرباعي</div>
             <div class="field-row">
               <div class="field-group flex-1">
-                <label for="selectT1RightTagMode">العبارة اليمنى (بجانب الباركود)</label>
-                <select id="selectT1RightTagMode">
+                <label for="selectT1RightTagMode">العبارة اليمنى (أقصى اليمين)</label>
+                <select id="selectT1RightTagMode" class="asheer-dropbox">
                   <option value="mask" selected>مخطوطة «محبة» الأصلية</option>
                   <option value="text">نص مخصص بالخط</option>
                   <option value="none">إخفاء</option>
@@ -356,14 +509,6 @@ in His gardens—that is my joy, O you whom I love</textarea>
                 <input type="text" id="inputT1FooterLeftAr" value="لأجلك" />
               </div>
             </div>
-
-            <label class="switch-row" style="margin-top:4px;">
-              <div>
-                <strong>ختم الباركود الدائري (QR Seal) في أسفل اليمين</strong>
-                <small>الختم الدائري في الزاوية السفلية اليمنى للتصميم</small>
-              </div>
-              <input type="checkbox" id="chkT1ShowQr" checked />
-            </label>
           </div>
         </section>
 
@@ -415,7 +560,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
             <div class="field-row">
               <div class="field-group flex-1">
                 <label for="selectMaxKashidaPerWord">أقصى مد في الكلمة الواحدة</label>
-                <select id="selectMaxKashidaPerWord">
+                <select id="selectMaxKashidaPerWord" class="asheer-dropbox">
                   <option value="1">قصير (١ كشيدة)</option>
                   <option value="2">متوسط (٢ كشيدة)</option>
                   <option value="3" selected>أصيل كما في الصورة (٣ كشيدات)</option>
@@ -424,7 +569,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
               </div>
               <div class="field-group flex-1">
                 <label for="selectBodyAlign">محاذاة السطر الأخير</label>
-                <select id="selectBodyAlign">
+                <select id="selectBodyAlign" class="asheer-dropbox">
                   <option value="right">محاذاة لليمين (طبيعي)</option>
                   <option value="justify" selected>مشدود بالكامل مثل الصورة</option>
                   <option value="center">توسيط</option>
@@ -434,11 +579,11 @@ in His gardens—that is my joy, O you whom I love</textarea>
           </div>
 
           <!-- اختيار الخطوط والأوزان والأحجام -->
-          <div class="control-card">
+          <div class="control-card" id="fontTitleControlCard">
             <div class="card-header">
               <span class="step-num">أ</span>
               <div>
-                <h3>خط وأبعاد العنوان (البطاقة العلوية)</h3>
+                <h3 id="hdrFontTitleCard">خط وأبعاد العنوان (البطاقة العلوية)</h3>
                 <p>عائلات خط ثمانية الرسمية والخطوط الأدبية المختارة</p>
               </div>
             </div>
@@ -446,7 +591,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
             <div class="field-row">
               <div class="field-group flex-2">
                 <label for="selectQuoteFont">خط بيت الشعر / العنوان</label>
-                <select id="selectQuoteFont">
+                <select id="selectQuoteFont" class="asheer-dropbox asheer-font-dropbox">
                   <optgroup label="✦ عائلة خط ثمانية الرسمية (مرفقة)">
                     <option value="Thmanyah Serif Display" selected>خط ثمانية للعناوين (Thmanyah Serif Display)</option>
                     <option value="Thmanyah Serif Text">خط ثمانية للنصوص (Thmanyah Serif Text)</option>
@@ -486,7 +631,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
               </div>
               <div class="field-group flex-1">
                 <label for="selectQuoteWeight">وزن الخط</label>
-                <select id="selectQuoteWeight">
+                <select id="selectQuoteWeight" class="asheer-dropbox">
                   <option value="300">خفيف (300)</option>
                   <option value="400">عادي (400)</option>
                   <option value="500" selected>متوسط (500)</option>
@@ -523,7 +668,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
             <div class="card-header">
               <span class="step-num">ب</span>
               <div>
-                <h3>خط وأبعاد الشرح (البطاقة السفلية)</h3>
+                <h3 id="hdrFontBodyCard">خط وأبعاد الشرح (البطاقة السفلية)</h3>
                 <p>التحكم الدقيق بحجم النص وتباعد الأسطر وعرض العمود</p>
               </div>
             </div>
@@ -531,7 +676,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
             <div class="field-row">
               <div class="field-group flex-2">
                 <label for="selectBodyFont">خط فقرة الشرح</label>
-                <select id="selectBodyFont">
+                <select id="selectBodyFont" class="asheer-dropbox asheer-font-dropbox">
                   <optgroup label="✦ عائلة خط ثمانية الرسمية (مرفقة)">
                     <option value="Thmanyah Sans" selected>خط ثمانية الرقمي (Thmanyah Sans)</option>
                     <option value="Thmanyah Serif Text">خط ثمانية للنصوص (Thmanyah Serif Text)</option>
@@ -560,7 +705,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
               </div>
               <div class="field-group flex-1">
                 <label for="selectBodyWeight">وزن الخط</label>
-                <select id="selectBodyWeight">
+                <select id="selectBodyWeight" class="asheer-dropbox">
                   <option value="300" selected>خفيف أنيق (300)</option>
                   <option value="400">عادي (400)</option>
                   <option value="500">متوسط (500)</option>
@@ -665,10 +810,19 @@ in His gardens—that is my joy, O you whom I love</textarea>
                 </span>
                 <span>ليلي معكوس</span>
               </button>
+
+              <button type="button" class="palette-chip" data-palette="paper-ink">
+                <span class="pal-swatches">
+                  <i style="background:#FFFFFF"></i>
+                  <i style="background:#F9F6F0"></i>
+                  <i style="background:#0F0F0F"></i>
+                </span>
+                <span>ورق كتاب وحبر أسود</span>
+              </button>
             </div>
 
             <div class="color-pickers-grid">
-              <div class="color-field">
+              <div class="color-field" id="colorBgField">
                 <label>خلفية التصميم</label>
                 <div class="color-input-wrap">
                   <input type="color" id="colorBg" value="#F5F1E8" />
@@ -676,15 +830,15 @@ in His gardens—that is my joy, O you whom I love</textarea>
                 </div>
               </div>
 
-              <div class="color-field">
-                <label>البطاقة العلوية</label>
+              <div class="color-field" id="colorTopCardField">
+                <label id="lblColorTopCard">البطاقة العلوية</label>
                 <div class="color-input-wrap">
                   <input type="color" id="colorTopCard" value="#023222" />
                   <input type="text" id="hexTopCard" value="#023222" dir="ltr" />
                 </div>
               </div>
 
-              <div class="color-field">
+              <div class="color-field" id="colorBottomCardField">
                 <label>البطاقة السفلية</label>
                 <div class="color-input-wrap">
                   <input type="color" id="colorBottomCard" value="#5C7265" />
@@ -701,7 +855,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
               </div>
 
               <div class="color-field">
-                <label>لون نص الشرح</label>
+                <label id="lblColorBodyText">لون نص الشرح</label>
                 <div class="color-input-wrap">
                   <input type="color" id="colorBodyText" value="#F5F1E8" />
                   <input type="text" id="hexBodyText" value="#F5F1E8" dir="ltr" />
@@ -722,13 +876,13 @@ in His gardens—that is my joy, O you whom I love</textarea>
             <div class="card-header">
               <span class="step-num">🖼️</span>
               <div>
-                <h3>صورة خلفية البطاقة الخضراء (العلوية)</h3>
-                <p>ضع صورة داخل المساحة الخضراء ويظهر النص فوقها بوضوح</p>
+                <h3 id="hdrBgImageCardTitle">صورة خلفية البطاقة الخضراء (العلوية)</h3>
+                <p id="hdrBgImageCardDesc">ضع صورة داخل المساحة الخضراء ويظهر النص فوقها بوضوح</p>
               </div>
             </div>
 
             <div class="field-row">
-              <label for="inputTopCardBgImage" class="btn btn-outline-full flex-2" style="margin:0;">
+              <label for="inputTopCardBgImage" id="lblUploadTopCardBgImage" class="btn btn-outline-full flex-2" style="margin:0;">
                 + اختر صورة لخلفية البطاقة الخضراء
               </label>
               <input type="file" id="inputTopCardBgImage" accept="image/*" hidden />
@@ -737,9 +891,9 @@ in His gardens—that is my joy, O you whom I love</textarea>
               </button>
             </div>
 
-            <div class="field-group">
+            <div class="field-group" id="topCardStyleGroup">
               <label for="selectTopCardStyle">نمط المساحة الخضراء / الصورة العلوية</label>
-              <select id="selectTopCardStyle">
+              <select id="selectTopCardStyle" class="asheer-dropbox">
                 <option value="card" selected>بطاقة بإطار وحواف دائرية (قالب وكيف أغفى)</option>
                 <option value="full-bleed">ممتدة لكامل الجزء العلوي (قالب ما وراء الخلق)</option>
               </select>
@@ -809,7 +963,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
             </div>
           </div>
 
-          <div class="control-card">
+          <div class="control-card" id="twoCardsDimensionsCard">
             <div class="card-header">
               <span class="step-num">📐</span>
               <div>
@@ -858,7 +1012,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
             <div class="field-row">
               <div class="field-group flex-1">
                 <label for="selectLogoMode">نوع الشعار الأساسي (الأول)</label>
-                <select id="selectLogoMode">
+                <select id="selectLogoMode" class="asheer-dropbox">
                   <option value="wadaq-mask" selected>شعار "أَشِير" المعتمد (النموذج الهندسي التحريري)</option>
                   <option value="custom-text">نص مخصص بخط عربي</option>
                   <option value="custom-image">شعار مخصص مرفوع (PNG / SVG)</option>
@@ -968,7 +1122,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
               <div class="field-row">
                 <div class="field-group flex-2">
                   <label for="selectLogoShadowTarget">إضافة ظل للشعار أو للإطار</label>
-                  <select id="selectLogoShadowTarget">
+                  <select id="selectLogoShadowTarget" class="asheer-dropbox">
                     <option value="none" selected>بدون ظل</option>
                     <option value="logo">ظل على الشعار نفسه</option>
                     <option value="frame">ظل على إطار/خلفية الشعار</option>

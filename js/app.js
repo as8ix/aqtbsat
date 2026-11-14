@@ -8,6 +8,8 @@ let ASHEER_LOGO_B64 = (typeof window !== 'undefined' && window.ASHEER_UPLOADED_M
 let WADAQ_LOGO_B64 = ASHEER_LOGO_B64;
 let T1_QR_BADGE_B64 = (typeof window !== 'undefined' && window.T1_QR_BADGE_B64) ? window.T1_QR_BADGE_B64 : '';
 let T1_MAHABBA_MASK_B64 = (typeof window !== 'undefined' && window.T1_MAHABBA_MASK_B64) ? window.T1_MAHABBA_MASK_B64 : '';
+let BOOK_DAA_WA_DAWAA_B64 = (typeof window !== 'undefined' && window.BOOK_DAA_WA_DAWAA_B64) ? window.BOOK_DAA_WA_DAWAA_B64 : '';
+let BOOK_DAA_TITLE_ONLY_B64 = (typeof window !== 'undefined' && window.BOOK_DAA_TITLE_ONLY_B64) ? window.BOOK_DAA_TITLE_ONLY_B64 : '';
 let MOMIASHI_SIG_B64 = "data:image/png;base64,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";
 
 // الحروف العربية التي تتصل بما بعدها (تقبل وضع كشيدة بعدها)
@@ -90,6 +92,14 @@ const COLOR_PALETTES = {
     quoteText: "#F5F1E8",
     bodyText: "#082B1D",
     logo: "#F5F1E8"
+  },
+  "paper-ink": {
+    bg: "#FFFFFF",
+    topCard: "#FFFFFF",
+    bottomCard: "#F7F4EE",
+    quoteText: "#0F0F0F",
+    bodyText: "#0F0F0F",
+    logo: "#0F0F0F"
   }
 };
 
@@ -125,7 +135,21 @@ function getInitialState() {
     t1FooterRight: "محبة",
     t1FooterCenter: "Lover",
     t1FooterLeftAr: "لأجلك",
-    t1ShowQr: true,
+    t1ShowQr: false,
+
+    // عناصر القالب الخامس (مقتبسات الكتب: «الداء والدواء»)
+    t5BookId: "daa-wa-dawaa",
+    t5StampMode: "full",
+    t5BookTitle: "الدَّاءُ وَالدَّوَاءُ",
+    t5BookSubtitle: "تأليف",
+    t5BookAuthor: "الإمَامِ أَبِي عَبْدِ اللهِ محَمَّدِ بْنِ أَبِي بَكْرِ بْنِ أَيُّوبَ ابْنِ قَيِّمِ الجَوْزِيَّةِ",
+    t5BookYears: "( ٦٩١ - ٧٥١ )",
+    t5CustomStampDataUrl: null,
+    t5AutoCleanBg: true,
+    t5StampScale: 100,
+    t5StampX: 0,
+    t5StampY: 0,
+    t5FirstLineIndent: true,
 
     // إعدادات محرك خط ثمانية للكشيدة
     autoKashida: true,
@@ -208,6 +232,9 @@ function getArtboardDimensions() {
   if (state.activeTemplateId === "1") {
     return { W: 1080, H: 1350 };
   }
+  if (state.activeTemplateId === "5") {
+    return { W: 1080, H: 1080 };
+  }
   return { W: 1080, H: 1920 };
 }
 
@@ -217,6 +244,9 @@ const loadedImages = {
   momiashiMask: null,
   t1QrBadge: null,
   t1MahabbaMask: null,
+  bookDaaFullMask: null,
+  bookDaaTitleMask: null,
+  t5CustomStamp: null,
   customLogo: null,
   topCardBg: null,
   extraLogos: {}
@@ -541,9 +571,48 @@ async function ensureFontLoaded(fontFamily, weight = "400") {
   }
 }
 
+const FOOTNOTE_MARKER_REGEX = /^([^\(]+)(\([٠-٩0-9]+\))(.*)$/;
+
 function measureStyledWordWidth(wordText, weight, sizePx, fontFamily, featureSettings) {
+  if (state.activeTemplateId === "5") {
+    const fnMatch = wordText.match(FOOTNOTE_MARKER_REGEX);
+    if (fnMatch) {
+      applyContextFontWithFeatures(measureCtx, measureCanvas, weight, sizePx, fontFamily, featureSettings);
+      const w1 = measureCtx.measureText(fnMatch[1]).width;
+      const w3 = fnMatch[3] ? measureCtx.measureText(fnMatch[3]).width : 0;
+      const supSize = Math.round(sizePx * 0.62);
+      applyContextFontWithFeatures(measureCtx, measureCanvas, weight, supSize, fontFamily, featureSettings);
+      const w2 = measureCtx.measureText(fnMatch[2]).width;
+      return w1 + w2 + w3;
+    }
+  }
   applyContextFontWithFeatures(measureCtx, measureCanvas, weight, sizePx, fontFamily, featureSettings);
   return measureCtx.measureText(wordText).width;
+}
+
+function drawWordWithFootnoteSuperscript(ctx, targetCanvas, wordText, rightX, lineY, weight, sizePx, fontFamily, featureSettings) {
+  const fnMatch = wordText.match(FOOTNOTE_MARKER_REGEX);
+  if (!fnMatch) {
+    applyContextFontWithFeatures(ctx, targetCanvas, weight, sizePx, fontFamily, featureSettings);
+    ctx.fillText(wordText, rightX, lineY);
+    return;
+  }
+  // ١. الكلمة الأساسية قبل رقم الحاشية
+  applyContextFontWithFeatures(ctx, targetCanvas, weight, sizePx, fontFamily, featureSettings);
+  ctx.fillText(fnMatch[1], rightX, lineY);
+  const w1 = ctx.measureText(fnMatch[1]).width;
+
+  // ٢. رقم الحاشية المرتفع (٢)
+  const supSize = Math.round(sizePx * 0.62);
+  applyContextFontWithFeatures(ctx, targetCanvas, weight, supSize, fontFamily, featureSettings);
+  ctx.fillText(fnMatch[2], rightX - w1, lineY - sizePx * 0.34);
+  const w2 = ctx.measureText(fnMatch[2]).width;
+
+  // ٣. علامة الترقيم بعد رقم الحاشية (مثل : أو ،) إن وجدت
+  if (fnMatch[3]) {
+    applyContextFontWithFeatures(ctx, targetCanvas, weight, sizePx, fontFamily, featureSettings);
+    ctx.fillText(fnMatch[3], rightX - w1 - w2, lineY);
+  }
 }
 
 /**
@@ -562,7 +631,8 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
     extendedFatha,
     kashidaIntensity,
     maxKashidaPerWord,
-    lastLineAlign
+    lastLineAlign,
+    firstLineIndent = 0
   } = options;
 
   const baseFeatures = buildFontFeatureSettings(false, 0, false, false);
@@ -575,11 +645,11 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
   for (const para of rawParagraphs) {
     const rawTokens = para.trim().split(/\s+/).filter(Boolean);
     if (rawTokens.length === 0) {
-      finalLines.push({ words: [], isLastLine: true, spaceGap: spaceWidth });
+      finalLines.push({ words: [], isLastLine: true, spaceGap: spaceWidth, indentRight: 0, lineMaxWidth: maxWidthPx });
       continue;
     }
 
-    // المرحلة ١: تقطيع الأسطر المبدئي
+    // المرحلة ١: تقطيع الأسطر المبدئي (مع مراعاة المسافة البادئة للسطر الأول إن وجدت)
     const wrappedLines = [];
     let currentLine = [];
     let currentWidth = 0;
@@ -587,7 +657,8 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
     for (const token of rawTokens) {
       const w = measureStyledWordWidth(token, fontWeight, fontSize, fontFamily, baseFeatures);
       const addedSpace = currentLine.length > 0 ? spaceWidth : 0;
-      if (currentLine.length > 0 && currentWidth + addedSpace + w > maxWidthPx) {
+      const activeMaxW = wrappedLines.length === 0 ? maxWidthPx - firstLineIndent : maxWidthPx;
+      if (currentLine.length > 0 && currentWidth + addedSpace + w > activeMaxW) {
         wrappedLines.push(currentLine);
         currentLine = [{ raw: token, text: token, swash: false, kashida: 0, hasFatha: false, width: w, features: baseFeatures }];
         currentWidth = w;
@@ -604,13 +675,17 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
     wrappedLines.forEach((lineWords, lineIdx) => {
       const isLast = lineIdx === wrappedLines.length - 1;
       const shouldJustifyLine = !isLast || lastLineAlign === "justify";
+      const indentRight = lineIdx === 0 ? firstLineIndent : 0;
+      const lineMaxW = maxWidthPx - indentRight;
 
       if (!shouldJustifyLine || lineWords.length === 0) {
         finalLines.push({
           words: lineWords,
           isLastLine: isLast,
           align: isLast ? lastLineAlign : "justify",
-          totalWordsWidth: lineWords.reduce((acc, item) => acc + item.width, 0)
+          totalWordsWidth: lineWords.reduce((acc, item) => acc + item.width, 0),
+          indentRight,
+          lineMaxWidth: lineMaxW
         });
         return;
       }
@@ -622,7 +697,7 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
       };
 
       // حساب الفراغ المطلوب سده في السطر
-      let deficit = maxWidthPx - calcLineTotal();
+      let deficit = lineMaxW - calcLineTotal();
       const targetFillDeficit = deficit * (kashidaIntensity / 100);
 
       // أ) تفعيل الأحرف المرسلة (ss01) على كلمة أو كلمتين غير متجاورتين في السطر
@@ -638,7 +713,7 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
             const testFeat = buildFontFeatureSettings(true, item.kashida, item.hasFatha, extendedFatha);
             const newW = measureStyledWordWidth(item.text, fontWeight, fontSize, fontFamily, testFeat);
             const delta = newW - item.width;
-            if (delta > 2 && calcLineTotal() + delta <= maxWidthPx + 4) {
+            if (delta > 2 && calcLineTotal() + delta <= lineMaxW + 4) {
               item.swash = true;
               item.width = newW;
               item.features = testFeat;
@@ -687,7 +762,7 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
             const newW = measureStyledWordWidth(res.text, fontWeight, fontSize, fontFamily, feat);
             const gain = newW - item.width;
 
-            if (gain > 0 && calcLineTotal() + gain <= maxWidthPx - 2 && addedWidth + gain <= targetFillDeficit + 35) {
+            if (gain > 0 && calcLineTotal() + gain <= lineMaxW - 2 && addedWidth + gain <= targetFillDeficit + 35) {
               item.text = res.text;
               item.kashida = res.kashidaCount;
               item.hasFatha = res.hasExtendedFatha;
@@ -703,7 +778,9 @@ function layoutAndJustifyParagraph(paragraphText, maxWidthPx, options) {
         words: lineWords,
         isLastLine: isLast,
         align: shouldJustifyLine ? "justify" : lastLineAlign,
-        totalWordsWidth: lineWords.reduce((acc, item) => acc + item.width, 0)
+        totalWordsWidth: lineWords.reduce((acc, item) => acc + item.width, 0),
+        indentRight,
+        lineMaxWidth: lineMaxW
       });
     });
   }
@@ -730,10 +807,14 @@ function drawRoundedRectPath(ctx, x, y, w, h, rTl, rTr, rBr, rBl) {
 }
 
 /**
- * تلوين صورة قناع شفافة (Mask) بأي لون يختاره المستخدم
+ * تلوين صورة قناع شفافة (Mask) بأي لون يختاره المستخدم (يدعم Image أو Canvas)
  */
 function drawTintedMask(ctx, img, x, y, w, h, colorHex) {
-  if (!img || !img.complete || img.naturalWidth === 0) return;
+  if (!img) return;
+  const srcW = img.naturalWidth || img.width || 0;
+  const srcH = img.naturalHeight || img.height || 0;
+  if (srcW === 0 || srcH === 0) return;
+
   const off = document.createElement("canvas");
   off.width = Math.max(1, Math.round(w));
   off.height = Math.max(1, Math.round(h));
@@ -745,6 +826,109 @@ function drawTintedMask(ctx, img, x, y, w, h, colorHex) {
   octx.fillRect(0, 0, off.width, off.height);
 
   ctx.drawImage(off, x, y, w, h);
+}
+
+/**
+ * تفريغ الخلفية البيضاء/الفاتحة تلقائياً من صورة اسم الكتاب المرفوعة وقص الحواف الفارغة
+ * حتى تعمل أي صورة مخطوطة يرفعها المستخدم (PNG أو JPG بخلفية بيضاء) كقناع حبر نقي
+ */
+function createCleanBookStampMask(img) {
+  if (!img || !img.naturalWidth || !img.naturalHeight) return null;
+  const w = img.naturalWidth;
+  const h = img.naturalHeight;
+  const tempCanvas = document.createElement("canvas");
+  tempCanvas.width = w;
+  tempCanvas.height = h;
+  const tctx = tempCanvas.getContext("2d");
+  tctx.drawImage(img, 0, 0, w, h);
+
+  const imgData = tctx.getImageData(0, 0, w, h);
+  const data = imgData.data;
+
+  // فحص ما إذا كانت الصورة تحتوي أصلاً على شفافية فعلية
+  let hasTransparency = false;
+  for (let i = 3; i < data.length; i += 16) {
+    if (data[i] < 240) {
+      hasTransparency = true;
+      break;
+    }
+  }
+
+  let minX = w;
+  let minY = h;
+  let maxX = 0;
+  let maxY = 0;
+
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const idx = (y * w + x) * 4;
+      const r = data[idx];
+      const g = data[idx + 1];
+      const b = data[idx + 2];
+      const a = data[idx + 3];
+
+      let outAlpha = a;
+      if (!hasTransparency) {
+        // تحويل السطوع في الصور ذات الخلفية البيضاء إلى شفافية ناعمة للحبر الداكن
+        const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+        if (lum >= 242) {
+          outAlpha = 0;
+        } else {
+          const ink = Math.min(1, Math.max(0, (242 - lum) / 185));
+          outAlpha = Math.round(Math.pow(ink, 0.9) * 255);
+        }
+      }
+
+      data[idx] = 0;
+      data[idx + 1] = 0;
+      data[idx + 2] = 0;
+      data[idx + 3] = outAlpha;
+
+      if (outAlpha > 18) {
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      }
+    }
+  }
+
+  tctx.putImageData(imgData, 0, 0);
+
+  if (maxX <= minX || maxY <= minY) {
+    return tempCanvas;
+  }
+
+  const pad = 6;
+  const cx = Math.max(0, minX - pad);
+  const cy = Math.max(0, minY - pad);
+  const cw = Math.min(w - cx, maxX - minX + pad * 2);
+  const ch = Math.min(h - cy, maxY - minY + pad * 2);
+
+  const cropped = document.createElement("canvas");
+  cropped.width = cw;
+  cropped.height = ch;
+  cropped.getContext("2d").drawImage(tempCanvas, cx, cy, cw, ch, 0, 0, cw, ch);
+  return cropped;
+}
+
+function loadT5BookStampFromDataUrl(dataUrl) {
+  return new Promise((resolve) => {
+    if (!dataUrl) {
+      loadedImages.t5CustomStamp = null;
+      loadedImages.t5CustomStampMask = null;
+      resolve(null);
+      return;
+    }
+    const img = new Image();
+    img.onload = () => {
+      loadedImages.t5CustomStamp = img;
+      loadedImages.t5CustomStampMask = createCleanBookStampMask(img);
+      resolve(img);
+    };
+    img.onerror = () => resolve(null);
+    img.src = dataUrl;
+  });
 }
 
 /**
@@ -1235,7 +1419,7 @@ function renderDesignToCanvas(targetCanvas, scaleFactor = 1) {
       drawBottomBowtieOrnament(ctx, 908, 1082, 22, 19, state.bodyTextColor);
     }
 
-    // ٩. رسم شريط الفوتر الخماسي السفلي (IG @ M.75T | لأجلك | Lover | محبة | QR Seal)
+    // ٩. رسم شريط الفوتر الرباعي السفلي (IG @ M.75T | لأجلك | Lover | محبة) بدون الباركود
     const footerY = 1200;
 
     // ٩-أ: أقصى اليسار (IG @ M.75T)
@@ -1257,7 +1441,7 @@ function renderDesignToCanvas(targetCanvas, scaleFactor = 1) {
       ctx.textAlign = "center";
       applyContextFontWithFeatures(ctx, targetCanvas, "400", 21, state.bodyFont, '"liga" 1');
       ctx.fillStyle = state.bodyTextColor;
-      ctx.fillText(state.t1FooterLeftAr.trim(), 348, footerY);
+      ctx.fillText(state.t1FooterLeftAr.trim(), 398, footerY);
       ctx.restore();
     }
 
@@ -1268,37 +1452,267 @@ function renderDesignToCanvas(targetCanvas, scaleFactor = 1) {
       ctx.textAlign = "center";
       ctx.font = `400 19px "Thmanyah Sans", sans-serif`;
       ctx.fillStyle = state.bodyTextColor;
-      ctx.fillText(state.t1FooterCenter.trim(), 560, footerY);
+      ctx.fillText(state.t1FooterCenter.trim(), 654, footerY);
       ctx.restore();
     }
 
-    // ٩-د: العبارة اليمنى («محبة» بالمخطوطة الأصلية أو كنص)
+    // ٩-د: العبارة اليمنى في أقصى اليمين («محبة» بالمخطوطة الأصلية أو كنص) بمحاذاة الطرف الأيمن للتصميم
     if (state.t1RightTagMode === "mask" && loadedImages.t1MahabbaMask) {
       const mw = 60;
       const mh = 60 * (66 / 100);
-      drawTintedMask(ctx, loadedImages.t1MahabbaMask, 768 - mw / 2, footerY - mh * 0.72, mw, mh, state.bodyTextColor);
+      drawTintedMask(ctx, loadedImages.t1MahabbaMask, 913 - mw, footerY - mh * 0.72, mw, mh, state.bodyTextColor);
     } else if (state.t1RightTagMode === "text" && state.t1FooterRight && state.t1FooterRight.trim()) {
       ctx.save();
       ctx.direction = "rtl";
-      ctx.textAlign = "center";
+      ctx.textAlign = "right";
       applyContextFontWithFeatures(ctx, targetCanvas, "400", 26, "Aref Ruqaa", '"liga" 1');
       ctx.fillStyle = state.bodyTextColor;
-      ctx.fillText(state.t1FooterRight.trim(), 768, footerY);
+      ctx.fillText(state.t1FooterRight.trim(), 913, footerY);
       ctx.restore();
     }
 
-    // ٩-هـ: ختم الباركود الدائري في أقصى اليمين (QR Seal)
-    if (state.t1ShowQr && loadedImages.t1QrBadge) {
-      const qrSize = 72;
+    ctx.restore();
+    return;
+  }
+
+  // =========================================================================
+  // مسار الرسم الخاص بالقالب الخامس (مقتبسات الكتب: «الداء والدواء» 1080×1080)
+  // =========================================================================
+  if (state.activeTemplateId === "5") {
+    // ١. خلفية صفحة الكتاب البيضاء (أو مع صورة خلفية ورقية إن رُفعت)
+    drawTopImageArea(
+      () => {
+        ctx.beginPath();
+        ctx.rect(0, 0, W, H);
+      },
+      0,
+      0,
+      W,
+      H
+    );
+
+    // ٢. رسم الشعار في أعلى اليمين إذا اختار المستخدم إظهاره
+    if (state.logoMode !== "none") {
+      drawTopRightLogoGroup(ctx, targetCanvas, scaleFactor, 1004, 88);
+    }
+
+    // ٣. رسم الزخرفة العلوية إن فعلها المستخدم
+    if (state.showTopOrnament) {
+      drawTopSquareDiamondOrnament(ctx, 112, 120, 26, state.bodyTextColor, state.topCardColor);
+    }
+
+    // ٤. رسم فقرة المقتبس من الكتاب (مع المسافة البادئة للسطر الأول وأرقام الحواشي المرتفعة)
+    const bodyMaxW = Number(state.bodyWidth) || 930;
+    const bodyRightX = (W + bodyMaxW) / 2;
+    const bSize = Number(state.bodySize) || 37;
+    const bLineHeightPx = bSize * Number(state.bodyLineHeight || 1.62);
+    const indentPx = state.t5FirstLineIndent ? 62 : 0;
+
+    const justifiedLines = layoutAndJustifyParagraph(state.bodyText, bodyMaxW, {
+      fontFamily: state.bodyFont,
+      fontWeight: state.bodyWeight,
+      fontSize: bSize,
+      autoKashida: state.autoKashida,
+      smartSwash: state.bodySmartSwash,
+      extendedFatha: state.extendedFatha,
+      kashidaIntensity: Number(state.kashidaIntensity),
+      maxKashidaPerWord: Number(state.maxKashidaPerWord),
+      lastLineAlign: state.bodyLastLineAlign,
+      firstLineIndent: indentPx
+    });
+
+    const bodyStartY = 248 + Number(state.bodyOffsetY || 0);
+    ctx.fillStyle = state.bodyTextColor;
+    ctx.textAlign = "right";
+
+    justifiedLines.forEach((lineObj, idx) => {
+      const lineY = bodyStartY + idx * bLineHeightPx;
+      const words = lineObj.words;
+      if (words.length === 0) return;
+
+      const lineRightStart = bodyRightX - (lineObj.indentRight || 0);
+      const lineAvailW = lineObj.lineMaxWidth || bodyMaxW;
+
+      if (words.length === 1 || lineObj.align === "right") {
+        let curX = lineRightStart;
+        const sp = bSize * 0.27;
+        words.forEach((w) => {
+          drawWordWithFootnoteSuperscript(
+            ctx,
+            targetCanvas,
+            w.text,
+            curX,
+            lineY,
+            state.bodyWeight,
+            bSize,
+            state.bodyFont,
+            w.features
+          );
+          curX -= w.width + sp;
+        });
+      } else if (lineObj.align === "center") {
+        const sp = bSize * 0.27;
+        const totalLineW = lineObj.totalWordsWidth + (words.length - 1) * sp;
+        let curX = (W + totalLineW) / 2;
+        words.forEach((w) => {
+          drawWordWithFootnoteSuperscript(
+            ctx,
+            targetCanvas,
+            w.text,
+            curX,
+            lineY,
+            state.bodyWeight,
+            bSize,
+            state.bodyFont,
+            w.features
+          );
+          curX -= w.width + sp;
+        });
+      } else {
+        const gap = (lineAvailW - lineObj.totalWordsWidth) / (words.length - 1);
+        let curX = lineRightStart;
+        words.forEach((w) => {
+          drawWordWithFootnoteSuperscript(
+            ctx,
+            targetCanvas,
+            w.text,
+            curX,
+            lineY,
+            state.bodyWeight,
+            bSize,
+            state.bodyFont,
+            w.features
+          );
+          curX -= w.width + gap;
+        });
+      }
+    });
+
+    // ٥. رسم مخطوطة عنوان الكتاب وبيانات المؤلف (مطابقة لموضع وأبعاد «الداء والدواء» في الأصل)
+    const sc = (Number(state.t5StampScale) || 100) / 100;
+    const stampCenterX = 357 + Number(state.t5StampX || 0);
+    const stampTopY = 569 + Number(state.t5StampY || 0);
+    const stampMode = state.t5StampMode || "full";
+
+    const drawCustomAuthorLines = (startY) => {
+      ctx.save();
+      ctx.fillStyle = state.bodyTextColor;
+      ctx.textAlign = "center";
+      ctx.direction = "rtl";
+
+      let curAuthorY = startY;
+      if (state.t5BookSubtitle && state.t5BookSubtitle.trim()) {
+        applyContextFontWithFeatures(ctx, targetCanvas, "400", Math.round(23 * sc), "Amiri", '"liga" 1');
+        ctx.fillText(state.t5BookSubtitle.trim(), stampCenterX, curAuthorY);
+        curAuthorY += Math.round(35 * sc);
+      }
+      if (state.t5BookAuthor && state.t5BookAuthor.trim()) {
+        applyContextFontWithFeatures(ctx, targetCanvas, "700", Math.round(25 * sc), "Amiri", '"liga" 1');
+        ctx.fillText(state.t5BookAuthor.trim(), stampCenterX, curAuthorY);
+        curAuthorY += Math.round(35 * sc);
+      }
+      if (state.t5BookYears && state.t5BookYears.trim()) {
+        applyContextFontWithFeatures(ctx, targetCanvas, "400", Math.round(21 * sc), "Amiri", '"liga" 1');
+        ctx.fillText(state.t5BookYears.trim(), stampCenterX, curAuthorY);
+      }
+      ctx.restore();
+    };
+
+    const hasCustomBookImg =
+      (state.t5BookId === "custom-image" || Boolean(state.t5CustomStampDataUrl)) && loadedImages.t5CustomStamp;
+    const presetBookImg =
+      !hasCustomBookImg &&
+      loadedImages.presetBooks &&
+      (state.t5BookId === "mukhtasar-minhaj" && (stampMode === "title-only" || stampMode === "custom-author")
+        ? loadedImages.presetBooks["mukhtasar-minhaj-title"] || loadedImages.presetBooks["mukhtasar-minhaj"]
+        : loadedImages.presetBooks[state.t5BookId]);
+
+    if (state.t5BookId === "daa-wa-dawaa" && !hasCustomBookImg) {
+      if (stampMode === "full" && loadedImages.bookDaaFullMask) {
+        const sw = 490 * sc;
+        const sh = 340 * sc;
+        drawTintedMask(
+          ctx,
+          loadedImages.bookDaaFullMask,
+          stampCenterX - sw / 2,
+          stampTopY,
+          sw,
+          sh,
+          state.bodyTextColor
+        );
+      } else if (loadedImages.bookDaaTitleMask) {
+        const sw = 490 * sc;
+        const sh = 188 * sc;
+        drawTintedMask(
+          ctx,
+          loadedImages.bookDaaTitleMask,
+          stampCenterX - sw / 2,
+          stampTopY,
+          sw,
+          sh,
+          state.bodyTextColor
+        );
+        if (stampMode === "custom-author") {
+          drawCustomAuthorLines(stampTopY + sh + Math.round(40 * sc));
+        }
+      }
+    } else if (presetBookImg) {
+      const srcW = presetBookImg.naturalWidth || presetBookImg.width || 1;
+      const srcH = presetBookImg.naturalHeight || presetBookImg.height || 1;
+      const aspect = srcH / srcW;
+      // موازنة عرض المخطوطة لتناسب المساحة السفلية بأناقة سواء كانت عريضة أو طولية
+      const baseW = aspect > 1.15 ? 340 : 475;
+      const sw = baseW * sc;
+      const sh = sw * aspect;
       drawTintedMask(
         ctx,
-        loadedImages.t1QrBadge,
-        948 - qrSize / 2,
-        footerY - 8 - qrSize / 2,
-        qrSize,
-        qrSize,
+        presetBookImg,
+        stampCenterX - sw / 2,
+        stampTopY,
+        sw,
+        sh,
         state.bodyTextColor
       );
+      if (stampMode === "custom-author") {
+        drawCustomAuthorLines(stampTopY + sh + Math.round(38 * sc));
+      }
+    } else if (hasCustomBookImg) {
+      const useCleanMask = state.t5AutoCleanBg !== false && loadedImages.t5CustomStampMask;
+      const srcEl = useCleanMask ? loadedImages.t5CustomStampMask : loadedImages.t5CustomStamp;
+      const srcW = srcEl.naturalWidth || srcEl.width || 1;
+      const srcH = srcEl.naturalHeight || srcEl.height || 1;
+      const aspect = srcH / srcW;
+      const sw = 480 * sc;
+      const sh = sw * aspect;
+      if (useCleanMask) {
+        drawTintedMask(ctx, srcEl, stampCenterX - sw / 2, stampTopY, sw, sh, state.bodyTextColor);
+      } else {
+        ctx.drawImage(srcEl, stampCenterX - sw / 2, stampTopY, sw, sh);
+      }
+      if (stampMode === "custom-author") {
+        drawCustomAuthorLines(stampTopY + sh + Math.round(38 * sc));
+      }
+    } else {
+      // كتاب مخصص مكتوب بالخط (أو كتاب محفوظ نصي من قائمة الكتب المخصصة)
+      ctx.save();
+      ctx.fillStyle = state.bodyTextColor;
+      ctx.textAlign = "center";
+      ctx.direction = "rtl";
+      const titleFontSize = Math.round(98 * sc);
+      applyContextFontWithFeatures(
+        ctx,
+        targetCanvas,
+        "700",
+        titleFontSize,
+        "Ali Moshref Thulth",
+        '"ss01" 1, "liga" 1'
+      );
+      ctx.fillText((state.t5BookTitle || "الدَّاءُ وَالدَّوَاءُ").trim(), stampCenterX, stampTopY + Math.round(120 * sc));
+      ctx.restore();
+
+      if (stampMode !== "title-only") {
+        drawCustomAuthorLines(stampTopY + Math.round(188 * sc));
+      }
     }
 
     ctx.restore();
@@ -1835,8 +2249,9 @@ function renderSavedTemplatesList() {
           }
         }
       }
-      // استرجاع صورة خلفية البطاقة الخضراء المحفوظة مع القالب
+      // استرجاع صورة خلفية البطاقة الخضراء ومخطوطة الكتاب المحفوظة مع القالب
       await loadTopCardImageFromDataUrl(state.topCardBgDataUrl || null);
+      await loadT5BookStampFromDataUrl(state.t5CustomStampDataUrl || null);
       await Promise.all([
         ensureFontLoaded(state.quoteFont, state.quoteWeight),
         ensureFontLoaded(state.bodyFont, state.bodyWeight)
@@ -1960,7 +2375,7 @@ function setupCanvasImageDrag() {
 
   const getImageArea = () => {
     const { W, H } = getArtboardDimensions();
-    if (state.activeTemplateId === "1") {
+    if (state.activeTemplateId === "1" || state.activeTemplateId === "5") {
       return { x: 0, y: 0, w: W, h: H };
     }
     const topCardY = 240;
@@ -2160,29 +2575,121 @@ function syncInputsFromState() {
     if (el) el.textContent = val;
   };
 
+  const toggleHidden = (id, hide) => {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle("hidden", Boolean(hide));
+  };
+
+  const isT1 = state.activeTemplateId === "1";
+  const isT5 = state.activeTemplateId === "5";
+  const isSingleSurface = isT1 || isT5;
   setVal("selectTemplatePreset", state.activeTemplateId || "4");
 
-  const t1Card = document.getElementById("template1ControlsCard");
-  if (t1Card) {
-    t1Card.classList.toggle("hidden", state.activeTemplateId !== "1");
+  // إظهار/إخفاء العناصر الخاصة بالقوالب المصمتة (١: الكحلي، ٥: مقتبسات الكتب) مقابل قوالب البطاقتين
+  toggleHidden("template1ControlsCard", !isT1);
+  toggleHidden("template5ControlsCard", !isT5);
+  toggleHidden("step1ControlCard", isT5);
+  toggleHidden("fontTitleControlCard", isT5);
+  toggleHidden("copyrightFieldGroup", isT5);
+  toggleHidden("poetLineGroup", isSingleSurface);
+  toggleHidden("sigControlsRow", isSingleSurface);
+  toggleHidden("twoCardsDimensionsCard", isSingleSurface);
+  toggleHidden("colorBgField", isSingleSurface);
+  toggleHidden("colorBottomCardField", isSingleSurface);
+  toggleHidden("topCardStyleGroup", isSingleSurface);
+
+  // تحديث النصوص والعناوين في لوحة التحكم لتتوافق مع القالب النشط (بدون ذكر بطاقات في القالب المصمت أو قالب الكتب)
+  setTxt("lblTabStyle", isSingleSurface ? "الألوان والخلفية" : "الألوان والبطاقات");
+  setTxt("hdrStep1Title", isT1 ? "العنوان الرئيسي («ليس لشيء»)" : "البطاقة العلوية (بيت الشعر / العنوان)");
+  setTxt(
+    "hdrStep1Desc",
+    isT1
+      ? "يتوسط التصميم بحجم بارز مع دعم الحرف المرسل والكشيدة لكل كلمة"
+      : "كل سطر يظهر في سطر مستقل داخل البطاقة الداكنة"
+  );
+  setTxt("lblQuickUploadBg", isSingleSurface ? "🖼️ وضع صورة خلفية للتصميم" : "🖼️ وضع صورة بالخلفية الخضراء");
+  setTxt(
+    "hdrStep2Title",
+    isT5
+      ? "نص المقتبس من الكتاب"
+      : isT1
+      ? "النص العربي الفرعي (أسفل العنوان)"
+      : "البطاقة السفلية (الشرح والتعليق)"
+  );
+  setTxt(
+    "lblInputBody",
+    isT5
+      ? "فقرة المقتبس (تدعم أرقام الحواشي مثل (٢) تلقائياً)"
+      : isT1
+      ? "النص الفرعي"
+      : "نص الشرح / المتن"
+  );
+  setTxt("hdrFontTitleCard", isT1 ? "خط وأبعاد العنوان الرئيسي" : "خط وأبعاد العنوان (البطاقة العلوية)");
+  setTxt(
+    "hdrFontBodyCard",
+    isT5
+      ? "خط وأبعاد نص المقتبس"
+      : isT1
+      ? "خط وأبعاد النص الفرعي"
+      : "خط وأبعاد الشرح (البطاقة السفلية)"
+  );
+  setTxt("lblColorTopCard", isT5 ? "لون ورق الصفحة" : isT1 ? "لون الخلفية المصمتة" : "البطاقة العلوية");
+  setTxt("lblColorBodyText", isT5 ? "لون حبر النص ومخطوطة الكتاب" : isT1 ? "لون النصوص الفرعية والفوتر" : "لون نص الشرح");
+  setTxt(
+    "hdrBgImageCardTitle",
+    isT5
+      ? "خلفية ورقية للصفحة (اختياري)"
+      : isT1
+      ? "صورة خلفية القالب (اختياري)"
+      : "صورة خلفية البطاقة الخضراء (العلوية)"
+  );
+  setTxt(
+    "hdrBgImageCardDesc",
+    isSingleSurface
+      ? "أضف صورة خلفية لكامل التصميم مع تحكم بالتعتيم والألوان"
+      : "ضع صورة داخل المساحة الخضراء ويظهر النص فوقها بوضوح"
+  );
+  setTxt("lblUploadTopCardBgImage", isSingleSurface ? "+ اختر صورة خلفية للتصميم" : "+ اختر صورة لخلفية البطاقة الخضراء");
+
+  const stageStatusSpan = document.querySelector(".stage-status span:last-child");
+  if (stageStatusSpan) {
+    const { W, H } = getArtboardDimensions();
+    stageStatusSpan.textContent = `معاينة حية مطابقة للتصدير (${W} × ${H} px)`;
   }
+
   setChk("chkT1ShowDiamonds", state.t1ShowDiamonds ?? true);
-  setVal("rangeT1DiamondSize", state.t1DiamondSize ?? 22);
-  setTxt("valT1DiamondSize", state.t1DiamondSize ?? 22);
+  setVal("rangeT1DiamondSize", state.t1DiamondSize ?? 20);
+  setTxt("valT1DiamondSize", state.t1DiamondSize ?? 20);
   setChk("chkT1ShowEnglish", state.t1ShowEnglish ?? true);
   setVal("inputT1EnglishText", state.t1EnglishText || "");
-  setVal("rangeT1EnglishSize", state.t1EnglishSize ?? 20);
-  setTxt("valT1EnglishSize", state.t1EnglishSize ?? 20);
+  setVal("rangeT1EnglishSize", state.t1EnglishSize ?? 17);
+  setTxt("valT1EnglishSize", state.t1EnglishSize ?? 17);
   setVal("selectT1RightTagMode", state.t1RightTagMode || "mask");
   setVal("inputT1FooterRight", state.t1FooterRight || "محبة");
   setVal("inputT1FooterCenter", state.t1FooterCenter || "Lover");
   setVal("inputT1FooterLeftAr", state.t1FooterLeftAr || "لأجلك");
-  setChk("chkT1ShowQr", state.t1ShowQr ?? true);
 
   const t1RightTextGrp = document.getElementById("t1RightTagTextGroup");
   if (t1RightTextGrp) {
     t1RightTextGrp.classList.toggle("hidden", (state.t1RightTagMode || "mask") !== "text");
   }
+
+  // عناصر القالب الخامس (مقتبسات الكتب)
+  setVal("selectT5BookId", state.t5BookId || "daa-wa-dawaa");
+  setVal("selectT5StampMode", state.t5StampMode || "full");
+  setVal("inputT5BookTitle", state.t5BookTitle || "الدَّاءُ وَالدَّوَاءُ");
+  setVal("inputT5BookSubtitle", state.t5BookSubtitle ?? "تأليف");
+  setVal("inputT5BookAuthor", state.t5BookAuthor ?? "الإِمَامِ أَبِي عَبْدِ اللهِ مُحَمَّدِ بْنِ أَبِي بَكْرِ بْنِ أَيُّوبَ ابْنِ قَيِّمِ الجَوْزِيَّةِ");
+  setVal("inputT5BookYears", state.t5BookYears ?? "( ٦٩١ - ٧٥١ )");
+  setChk("chkT5AutoCleanBg", state.t5AutoCleanBg ?? true);
+  setVal("rangeT5StampScale", state.t5StampScale ?? 100);
+  setTxt("valT5StampScale", state.t5StampScale ?? 100);
+  setVal("rangeT5StampX", state.t5StampX ?? 0);
+  setTxt("valT5StampX", state.t5StampX ?? 0);
+  setVal("rangeT5StampY", state.t5StampY ?? 0);
+  setTxt("valT5StampY", state.t5StampY ?? 0);
+  setChk("chkT5FirstLineIndent", state.t5FirstLineIndent ?? true);
+  toggleT5Subfields();
 
   setVal("inputQuote", state.quoteText);
   setVal("inputPoet", state.poet);
@@ -2289,7 +2796,252 @@ function syncInputsFromState() {
 
   renderExtraLogosUI();
   toggleLogoSubfields();
+  refreshAllCustomDropboxes();
 }
+
+/**
+ * نظام القوائم المنسدلة المخصص (Asheer Custom Dropbox UI)
+ * يحول كل <select class="asheer-dropbox"> إلى قائمة تفاعلية بتصميم خاص
+ * ويدعم التنقل الفوري بأسهم الكيبورد (فوق/تحت) أو أزرار الأسهم مع معاينة فورية للخطوط
+ */
+function stepSelectOption(selectEl, delta) {
+  if (!selectEl) return;
+  const opts = Array.from(selectEl.options).filter((o) => !o.disabled);
+  if (opts.length === 0) return;
+  const curIdx = opts.findIndex((o) => o.value === selectEl.value);
+  let nextIdx = curIdx + delta;
+  if (nextIdx < 0) nextIdx = opts.length - 1;
+  if (nextIdx >= opts.length) nextIdx = 0;
+  if (opts[nextIdx] && opts[nextIdx].value !== selectEl.value) {
+    selectEl.value = opts[nextIdx].value;
+    selectEl.dispatchEvent(new Event("change", { bubbles: true }));
+    selectEl.dispatchEvent(new Event("input", { bubbles: true }));
+    if (selectEl._refreshCustomDropbox) {
+      selectEl._refreshCustomDropbox(true);
+    }
+  }
+}
+
+function enhanceAsheerDropboxes(root = document) {
+  const selects = root.querySelectorAll("select.asheer-dropbox");
+  selects.forEach((selectEl) => {
+    if (selectEl.dataset.dropboxEnhanced === "1") {
+      if (selectEl._refreshCustomDropbox) selectEl._refreshCustomDropbox(false);
+      return;
+    }
+    selectEl.dataset.dropboxEnhanced = "1";
+    selectEl.classList.add("asheer-native-select-hidden");
+
+    const isFontSelect = selectEl.classList.contains("asheer-font-dropbox");
+    const wrapper = document.createElement("div");
+    wrapper.className = "asheer-dropbox-wrapper";
+
+    const controlBar = document.createElement("div");
+    controlBar.className = "asheer-dropbox-control";
+
+    const triggerBtn = document.createElement("button");
+    triggerBtn.type = "button";
+    triggerBtn.className = "asheer-dropbox-trigger";
+    triggerBtn.setAttribute("aria-haspopup", "listbox");
+    triggerBtn.setAttribute("aria-expanded", "false");
+
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "asheer-dropbox-label";
+
+    const chevronSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    chevronSvg.setAttribute("viewBox", "0 0 24 24");
+    chevronSvg.setAttribute("fill", "none");
+    chevronSvg.setAttribute("stroke", "currentColor");
+    chevronSvg.setAttribute("stroke-width", "2.4");
+    chevronSvg.setAttribute("class", "asheer-dropbox-chevron");
+    chevronSvg.innerHTML = `<polyline points="6 9 12 15 18 9"></polyline>`;
+
+    triggerBtn.appendChild(labelSpan);
+    triggerBtn.appendChild(chevronSvg);
+
+    // أزرار الأسهم فوق/تحت للتبديل السريع الفوري
+    const steppersBox = document.createElement("div");
+    steppersBox.className = "asheer-dropbox-steppers";
+
+    const btnUp = document.createElement("button");
+    btnUp.type = "button";
+    btnUp.className = "asheer-step-arrow";
+    btnUp.title = "الخيار السابق (سهم لأعلى)";
+    btnUp.textContent = "▲";
+    btnUp.addEventListener("click", (e) => {
+      e.stopPropagation();
+      stepSelectOption(selectEl, -1);
+    });
+
+    const btnDown = document.createElement("button");
+    btnDown.type = "button";
+    btnDown.className = "asheer-step-arrow";
+    btnDown.title = "الخيار التالي (سهم لأسفل)";
+    btnDown.textContent = "▼";
+    btnDown.addEventListener("click", (e) => {
+      e.stopPropagation();
+      stepSelectOption(selectEl, 1);
+    });
+
+    steppersBox.appendChild(btnUp);
+    steppersBox.appendChild(btnDown);
+
+    controlBar.appendChild(triggerBtn);
+    controlBar.appendChild(steppersBox);
+
+    const menuEl = document.createElement("div");
+    menuEl.className = "asheer-dropbox-menu";
+    menuEl.setAttribute("role", "listbox");
+
+    selectEl.parentNode.insertBefore(wrapper, selectEl);
+    wrapper.appendChild(selectEl);
+    wrapper.appendChild(controlBar);
+    wrapper.appendChild(menuEl);
+
+    const buildMenuItems = (scrollActiveIntoView = false) => {
+      menuEl.innerHTML = "";
+      const selectedOpt = selectEl.options[selectEl.selectedIndex] || selectEl.options[0];
+      labelSpan.textContent = selectedOpt ? selectedOpt.textContent : "";
+      if (isFontSelect && selectedOpt) {
+        labelSpan.style.fontFamily = `"${selectedOpt.value}", var(--ui-font)`;
+      }
+
+      const appendOptionRow = (opt) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "asheer-dropbox-option" + (opt.value === selectEl.value ? " active" : "");
+        itemDiv.dataset.value = opt.value;
+
+        const txt = document.createElement("span");
+        txt.textContent = opt.textContent;
+        if (isFontSelect) {
+          txt.style.fontFamily = `"${opt.value}", var(--ui-font)`;
+          txt.style.fontSize = "14.5px";
+        }
+
+        const chk = document.createElement("span");
+        chk.className = "opt-check";
+        chk.textContent = "✓";
+
+        itemDiv.appendChild(txt);
+        itemDiv.appendChild(chk);
+
+        itemDiv.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          if (selectEl.value !== opt.value) {
+            selectEl.value = opt.value;
+            selectEl.dispatchEvent(new Event("change", { bubbles: true }));
+            selectEl.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+          buildMenuItems(false);
+          wrapper.classList.remove("open");
+          triggerBtn.setAttribute("aria-expanded", "false");
+          triggerBtn.focus();
+        });
+
+        menuEl.appendChild(itemDiv);
+      };
+
+      Array.from(selectEl.children).forEach((child) => {
+        if (child.tagName === "OPTGROUP") {
+          const opts = Array.from(child.children).filter((opt) => opt.tagName === "OPTION");
+          if (opts.length === 0 || child.hidden) return;
+          const grpLbl = document.createElement("div");
+          grpLbl.className = "asheer-dropbox-group-label";
+          grpLbl.textContent = child.label;
+          menuEl.appendChild(grpLbl);
+          opts.forEach((opt) => appendOptionRow(opt));
+        } else if (child.tagName === "OPTION") {
+          appendOptionRow(child);
+        }
+      });
+
+      if (scrollActiveIntoView) {
+        const activeRow = menuEl.querySelector(".asheer-dropbox-option.active");
+        if (activeRow) {
+          activeRow.scrollIntoView({ block: "nearest" });
+        }
+      }
+    };
+
+    selectEl._refreshCustomDropbox = buildMenuItems;
+    buildMenuItems(false);
+
+    triggerBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const wasOpen = wrapper.classList.contains("open");
+      document.querySelectorAll(".asheer-dropbox-wrapper.open").forEach((w) => {
+        w.classList.remove("open");
+        const b = w.querySelector(".asheer-dropbox-trigger");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+      if (!wasOpen) {
+        buildMenuItems(true);
+        wrapper.classList.add("open");
+        triggerBtn.setAttribute("aria-expanded", "true");
+        const activeRow = menuEl.querySelector(".asheer-dropbox-option.active");
+        if (activeRow) activeRow.scrollIntoView({ block: "nearest" });
+      }
+    });
+
+    // دعم أسهم الكيبورد (فوق / تحت) لتغيير الخيارات والخطوط مباشرة مع ظهور التغيير فوراً
+    triggerBtn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        e.stopPropagation();
+        stepSelectOption(selectEl, 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        e.stopPropagation();
+        stepSelectOption(selectEl, -1);
+      } else if (e.key === "Escape") {
+        wrapper.classList.remove("open");
+        triggerBtn.setAttribute("aria-expanded", "false");
+      } else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        triggerBtn.click();
+      }
+    });
+
+    selectEl.addEventListener("change", () => {
+      buildMenuItems(true);
+    });
+  });
+}
+
+function refreshAllCustomDropboxes() {
+  document.querySelectorAll("select.asheer-dropbox").forEach((sel) => {
+    if (sel._refreshCustomDropbox) {
+      sel._refreshCustomDropbox(false);
+    }
+  });
+}
+
+// إغلاق القوائم المنسدلة عند الضغط خارجها ودعم أسهم الكيبورد للقائمة المفتوحة
+document.addEventListener("click", () => {
+  document.querySelectorAll(".asheer-dropbox-wrapper.open").forEach((w) => {
+    w.classList.remove("open");
+    const b = w.querySelector(".asheer-dropbox-trigger");
+    if (b) b.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.addEventListener("keydown", (e) => {
+  const openWrapper = document.querySelector(".asheer-dropbox-wrapper.open");
+  if (!openWrapper) return;
+  const sel = openWrapper.querySelector("select.asheer-dropbox");
+  if (!sel) return;
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    stepSelectOption(sel, 1);
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    stepSelectOption(sel, -1);
+  } else if (e.key === "Escape") {
+    openWrapper.classList.remove("open");
+    const b = openWrapper.querySelector(".asheer-dropbox-trigger");
+    if (b) b.setAttribute("aria-expanded", "false");
+  }
+});
 
 function toggleLogoSubfields() {
   const logoTextGroup = document.getElementById("logoTextGroup");
@@ -2312,6 +3064,117 @@ function toggleLogoSubfields() {
   if (logoDividerControls) {
     const hasMultiple = Array.isArray(state.extraLogos) && state.extraLogos.length > 0;
     logoDividerControls.classList.toggle("hidden", !hasMultiple);
+  }
+}
+
+const SAVED_BOOKS_STORAGE_KEY = "asheer_saved_books_v1";
+
+function getSavedCustomBooks() {
+  try {
+    const raw = localStorage.getItem(SAVED_BOOKS_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCustomBooksList(list) {
+  try {
+    localStorage.setItem(SAVED_BOOKS_STORAGE_KEY, JSON.stringify(list));
+  } catch {
+    alert("تعذر حفظ الكتاب في ذاكرة المتصفح.");
+  }
+  populateSavedBooksSelect();
+}
+
+function populateSavedBooksSelect() {
+  const optgroup =
+    document.getElementById("t5SavedBooksOptgroup") ||
+    document.getElementById("t5BooksOptgroup");
+  if (!optgroup) return;
+  Array.from(optgroup.querySelectorAll('option[data-custom-book="1"]')).forEach((o) => o.remove());
+  const books = getSavedCustomBooks();
+  books.forEach((bk) => {
+    const opt = document.createElement("option");
+    opt.value = bk.id;
+    opt.dataset.customBook = "1";
+    opt.textContent = bk.label || bk.title;
+    optgroup.appendChild(opt);
+  });
+  const sel = document.getElementById("selectT5BookId");
+  if (sel && sel._refreshCustomDropbox) {
+    sel._refreshCustomDropbox(false);
+  }
+}
+
+const BUILTIN_PRESET_BOOK_IDS = new Set([
+  "daa-wa-dawaa",
+  "zad-al-maad",
+  "madarij-al-salikin",
+  "al-fawaid",
+  "badai-al-fawaid",
+  "uddat-al-sabirin",
+  "tariq-al-hijratayn",
+  "jala-al-afham",
+  "rawdat-al-muhibbin",
+  "hadi-al-arwah",
+  "ighathat-al-lahfan",
+  "ilam-al-muwaqqiin",
+  "risalat-ibn-al-qayyim",
+  "al-ikseer",
+  "taysir-al-karim-al-rahman",
+  "al-tafsir-al-muyassar",
+  "sharh-hilyat-talib-al-ilm",
+  "mukhtasar-minhaj",
+  "sayd-al-khatir",
+  "talbis-iblis",
+  "al-bidaya",
+  "al-kamil",
+  "rijal-min-tarikh",
+  "qisas-min-tarikh",
+  "suwar-wa-khawatir",
+  "rihlat-al-istiqama"
+]);
+
+function toggleT5Subfields() {
+  const customBox = document.getElementById("t5CustomBookFields");
+  const titleGrp = document.getElementById("t5BookTitleInputGroup");
+  const authorGrp = document.getElementById("t5BookAuthorFieldsGroup");
+  const btnSaveBook = document.getElementById("btnT5SaveBookToLibrary");
+  const btnRemoveStamp = document.getElementById("btnRemoveT5BookStamp");
+  const cleanBgWrap = document.getElementById("t5AutoCleanBgWrap");
+  if (!customBox) return;
+
+  const bookId = state.t5BookId || "daa-wa-dawaa";
+  const stampMode = state.t5StampMode || "full";
+  const hasUploadedStamp = Boolean(state.t5CustomStampDataUrl || loadedImages.t5CustomStamp);
+  const isBuiltinBook = BUILTIN_PRESET_BOOK_IDS.has(bookId);
+
+  if (btnRemoveStamp) {
+    btnRemoveStamp.classList.toggle("hidden", !hasUploadedStamp);
+  }
+  if (cleanBgWrap) {
+    cleanBgWrap.classList.toggle("hidden", !hasUploadedStamp && bookId !== "custom-image");
+  }
+
+  if (isBuiltinBook && !hasUploadedStamp) {
+    const needCustomAuthor = stampMode === "custom-author";
+    customBox.classList.toggle("hidden", !needCustomAuthor);
+    if (titleGrp) titleGrp.classList.add("hidden");
+    if (authorGrp) authorGrp.classList.toggle("hidden", !needCustomAuthor);
+    if (btnSaveBook) btnSaveBook.classList.add("hidden");
+  } else if (bookId === "custom-image" || hasUploadedStamp) {
+    customBox.classList.remove("hidden");
+    if (titleGrp) titleGrp.classList.remove("hidden");
+    if (authorGrp) authorGrp.classList.toggle("hidden", stampMode !== "custom-author");
+    if (btnSaveBook) btnSaveBook.classList.toggle("hidden", bookId.startsWith("saved-book-"));
+  } else {
+    // custom-text أو كتاب محفوظ نصي من القائمة
+    customBox.classList.remove("hidden");
+    if (titleGrp) titleGrp.classList.remove("hidden");
+    if (authorGrp) authorGrp.classList.toggle("hidden", stampMode === "title-only");
+    if (btnSaveBook) btnSaveBook.classList.toggle("hidden", bookId !== "custom-text");
   }
 }
 
@@ -2356,10 +3219,10 @@ function renderExtraLogosUI() {
     row1.innerHTML = `
       <div class="field-group flex-1">
         <label>نوع الشعار</label>
-        <select class="ex-logo-mode">
+        <select class="asheer-dropbox ex-logo-mode">
           <option value="custom-text" ${item.mode === "custom-text" ? "selected" : ""}>نص مكتوب بالخط</option>
           <option value="custom-image" ${item.mode === "custom-image" ? "selected" : ""}>صورة شعار (PNG/SVG)</option>
-          <option value="wadaq-mask" ${item.mode === "wadaq-mask" ? "selected" : ""}>شعار "ودق" الأصلي</option>
+          <option value="wadaq-mask" ${item.mode === "wadaq-mask" ? "selected" : ""}>شعار "أشير" الأصلي</option>
         </select>
       </div>
       <div class="field-group flex-1">
@@ -2464,6 +3327,7 @@ function renderExtraLogosUI() {
     });
 
     container.appendChild(card);
+    enhanceAsheerDropboxes(card);
   });
 }
 
@@ -2539,7 +3403,11 @@ function bindEvents() {
     ["inputT1EnglishText", "t1EnglishText"],
     ["inputT1FooterRight", "t1FooterRight"],
     ["inputT1FooterCenter", "t1FooterCenter"],
-    ["inputT1FooterLeftAr", "t1FooterLeftAr"]
+    ["inputT1FooterLeftAr", "t1FooterLeftAr"],
+    ["inputT5BookTitle", "t5BookTitle"],
+    ["inputT5BookSubtitle", "t5BookSubtitle"],
+    ["inputT5BookAuthor", "t5BookAuthor"],
+    ["inputT5BookYears", "t5BookYears"]
   ];
   textBindings.forEach(([id, key]) => {
     const el = document.getElementById(id);
@@ -2551,7 +3419,7 @@ function bindEvents() {
     }
   });
 
-  // مبدل القوالب الأربعة السريع في الشريط العلوي
+  // مبدل القوالب السريع في الشريط العلوي
   const selectTemplatePreset = document.getElementById("selectTemplatePreset");
   if (selectTemplatePreset) {
     selectTemplatePreset.addEventListener("change", () => {
@@ -2570,7 +3438,9 @@ function bindEvents() {
     ["selectBodyWeight", "bodyWeight"],
     ["selectLogoMode", "logoMode"],
     ["selectLogoShadowTarget", "logoShadowTarget"],
-    ["selectT1RightTagMode", "t1RightTagMode"]
+    ["selectT1RightTagMode", "t1RightTagMode"],
+    ["selectT5BookId", "t5BookId"],
+    ["selectT5StampMode", "t5StampMode"]
   ];
   selectBindings.forEach(([id, key]) => {
     const el = document.getElementById(id);
@@ -2584,6 +3454,31 @@ function bindEvents() {
             t1RightTextGrp.classList.toggle("hidden", state.t1RightTagMode !== "text");
           }
         }
+        if (id === "selectT5BookId") {
+          if (BUILTIN_PRESET_BOOK_IDS.has(state.t5BookId)) {
+            state.t5CustomStampDataUrl = null;
+            loadedImages.t5CustomStamp = null;
+            loadedImages.t5CustomStampMask = null;
+          } else if (state.t5BookId === "custom-text") {
+            state.t5CustomStampDataUrl = null;
+            loadedImages.t5CustomStamp = null;
+            loadedImages.t5CustomStampMask = null;
+          } else if (state.t5BookId && state.t5BookId.startsWith("saved-book-")) {
+            const savedBook = getSavedCustomBooks().find((b) => b.id === state.t5BookId);
+            if (savedBook) {
+              state.t5BookTitle = savedBook.title || "";
+              state.t5BookSubtitle = savedBook.subtitle || "تأليف";
+              state.t5BookAuthor = savedBook.author || "";
+              state.t5BookYears = savedBook.years || "";
+              state.t5CustomStampDataUrl = savedBook.stampDataUrl || null;
+              await loadT5BookStampFromDataUrl(state.t5CustomStampDataUrl);
+            }
+          }
+          syncInputsFromState();
+        }
+        if (id === "selectT5StampMode") {
+          toggleT5Subfields();
+        }
         if (id === "selectQuoteFont" || id === "selectQuoteWeight") {
           await ensureFontLoaded(state.quoteFont, state.quoteWeight);
           renderQuoteWordChips();
@@ -2595,6 +3490,72 @@ function bindEvents() {
       });
     }
   });
+
+  // رفع صورة اسم الكتاب / المخطوطة في القالب الخامس
+  const t5StampUpload = document.getElementById("inputT5BookStampUpload");
+  if (t5StampUpload) {
+    t5StampUpload.addEventListener("change", async (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      try {
+        const dataUrl = await downscaleImageFile(file, 1400);
+        state.t5CustomStampDataUrl = dataUrl;
+        await loadT5BookStampFromDataUrl(dataUrl);
+        state.t5BookId = "custom-image";
+        const cleanFileName = file.name.replace(/\.(png|jpe?g|webp|svg)$/i, "").trim();
+        if (cleanFileName && (!state.t5BookTitle || state.t5BookTitle === "الدَّاءُ وَالدَّوَاءُ")) {
+          state.t5BookTitle = cleanFileName;
+        }
+        syncInputsFromState();
+        requestRender();
+      } catch {
+        alert("تعذر قراءة صورة اسم الكتاب. جرّب صورة PNG أو JPG.");
+      }
+      t5StampUpload.value = "";
+    });
+  }
+
+  // حذف صورة اسم الكتاب المرفوعة والعودة للكتاب الأساسي
+  const btnRemoveT5BookStamp = document.getElementById("btnRemoveT5BookStamp");
+  if (btnRemoveT5BookStamp) {
+    btnRemoveT5BookStamp.addEventListener("click", () => {
+      state.t5CustomStampDataUrl = null;
+      loadedImages.t5CustomStamp = null;
+      loadedImages.t5CustomStampMask = null;
+      state.t5BookId = "daa-wa-dawaa";
+      syncInputsFromState();
+      requestRender();
+    });
+  }
+
+  // حفظ عنوان كتاب مخصص (نصي أو بصورة اسم الكتاب المرفوعة) في قائمة الكتب السريعة
+  const btnT5SaveBook = document.getElementById("btnT5SaveBookToLibrary");
+  if (btnT5SaveBook) {
+    btnT5SaveBook.addEventListener("click", () => {
+      const title = (state.t5BookTitle || "").trim();
+      if (!title) {
+        alert("اكتب اسم الكتاب أولاً لحفظه في القائمة.");
+        return;
+      }
+      const shortAuthor = (state.t5BookAuthor || "").trim().slice(0, 32);
+      const hasImg = Boolean(state.t5CustomStampDataUrl);
+      const newBook = {
+        id: "saved-book-" + Date.now(),
+        label: (hasImg ? "🖼️ " : "") + (shortAuthor ? `${title} — ${shortAuthor}` : title),
+        title,
+        subtitle: state.t5BookSubtitle || "تأليف",
+        author: state.t5BookAuthor || "",
+        years: state.t5BookYears || "",
+        stampDataUrl: state.t5CustomStampDataUrl || null
+      };
+      const list = getSavedCustomBooks();
+      list.push(newBook);
+      saveCustomBooksList(list);
+      state.t5BookId = newBook.id;
+      syncInputsFromState();
+      requestRender();
+    });
+  }
 
   // ربط أشرطة التمرير (Sliders)
   const rangeBindings = [
@@ -2622,7 +3583,10 @@ function bindEvents() {
     ["rangeLogoShadowBlur", "logoShadowBlur", "valLogoShadowBlur"],
     ["rangeLogoShadowOffsetY", "logoShadowOffsetY", "valLogoShadowOffsetY"],
     ["rangeT1DiamondSize", "t1DiamondSize", "valT1DiamondSize"],
-    ["rangeT1EnglishSize", "t1EnglishSize", "valT1EnglishSize"]
+    ["rangeT1EnglishSize", "t1EnglishSize", "valT1EnglishSize"],
+    ["rangeT5StampScale", "t5StampScale", "valT5StampScale"],
+    ["rangeT5StampX", "t5StampX", "valT5StampX"],
+    ["rangeT5StampY", "t5StampY", "valT5StampY"]
   ];
   rangeBindings.forEach(([id, key, lblId]) => {
     const el = document.getElementById(id);
@@ -2665,7 +3629,8 @@ function bindEvents() {
     ["chkShowBottomOrnament", "showBottomOrnament"],
     ["chkT1ShowDiamonds", "t1ShowDiamonds"],
     ["chkT1ShowEnglish", "t1ShowEnglish"],
-    ["chkT1ShowQr", "t1ShowQr"]
+    ["chkT5FirstLineIndent", "t5FirstLineIndent"],
+    ["chkT5AutoCleanBg", "t5AutoCleanBg"]
   ];
   checkBindings.forEach(([id, key]) => {
     const el = document.getElementById(id);
@@ -2722,8 +3687,8 @@ function bindEvents() {
       state.topCardColor = pal.topCard;
       state.bottomCardColor = pal.bottomCard;
       state.quoteTextColor = pal.quoteText;
-      state.bodyTextColor = pal.bodyText;
-      state.logoColor = pal.logo;
+      state.bodyTextColor = state.activeTemplateId === "1" ? pal.quoteText : pal.bodyText;
+      state.logoColor = state.activeTemplateId === "1" ? pal.quoteText : pal.logo;
 
       syncInputsFromState();
       requestRender();
@@ -2843,7 +3808,7 @@ function bindEvents() {
     // نرسم على نفس عنصر quoteCanvas المربوط بالـ DOM حتى تتطابق جميع خصائص الـ OpenType والخطوط والظلال 100%
     renderDesignToCanvas(liveCanvas, scale);
 
-    liveCanvas.toBlob((blob) => {
+    const handleBlobExport = (blob) => {
       // إعادة لوحة المعاينة لدقة العرض العادية فوراً بعد التصدير
       renderDesignToCanvas(liveCanvas, 1);
       if (!blob) return;
@@ -2857,7 +3822,20 @@ function bindEvents() {
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 2000);
-    }, "image/png");
+    };
+
+    try {
+      liveCanvas.toBlob(handleBlobExport, "image/png");
+    } catch {
+      // في حال فتح الملف محلياً عبر file:// ومنع المتصفح تصدير صورة محلية، نستخدم النسخة المضمنة B64 للتصدير
+      const origPreset = loadedImages.presetBooks;
+      loadedImages.presetBooks = loadedImages.presetBooksB64Fallback || origPreset;
+      renderDesignToCanvas(liveCanvas, scale);
+      liveCanvas.toBlob((b) => {
+        loadedImages.presetBooks = origPreset;
+        handleBlobExport(b);
+      }, "image/png");
+    }
   });
 
   // أزرار التكبير والتصغير
@@ -2871,27 +3849,84 @@ function bindEvents() {
    بدء تشغيل الاستوديو وتحميل الخطوط والأقنعة
    ========================================================================== */
 
+const PRESET_BOOK_FILES = {
+  "daa-wa-dawaa": "الداء والدواء - ابن قيم الجوزية.png",
+  "zad-al-maad": "زاد المعاد في هدي خير العباد - ابن قيم الجوزية.png",
+  "madarij-al-salikin": "مدارج السالكين - ابن قيم الجوزية.png",
+  "al-fawaid": "الفوائد - ابن قيم الجوزية.png",
+  "badai-al-fawaid": "بدائع الفوائد - ابن قيم الجوزية.png",
+  "uddat-al-sabirin": "عدة الصابرين وذخيرة الشاكرين - ابن قيم الجوزية.png",
+  "tariq-al-hijratayn": "طريق الهجرتين وباب السعادتين - ابن قيم الجوزية.png",
+  "jala-al-afham": "جلاء الأفهام - ابن قيم الجوزية.png",
+  "rawdat-al-muhibbin": "روضة المحبين ونزهة المشتاقين - ابن قيم الجوزية.png",
+  "hadi-al-arwah": "حادي الأرواح إلى بلاد الأفراح - ابن قيم الجوزية.png",
+  "ighathat-al-lahfan": "إغاثة اللهفان في مصايد الشيطان - ابن قيم الجوزية.png",
+  "ilam-al-muwaqqiin": "إعلام الموقعين عن رب العالمين - ابن قيم الجوزية.png",
+  "risalat-ibn-al-qayyim": "رسالة ابن القيم إلى أحد إخوانه - ابن قيم الجوزية.png",
+  "al-ikseer": "الإكسير - خلاصة أعمال القلوب.png",
+  "taysir-al-karim-al-rahman": "تيسير الكريم الرحمن في تفسير كلام المنان - السعدي.png",
+  "al-tafsir-al-muyassar": "التفسير الميسر.png",
+  "sharh-hilyat-talib-al-ilm": "شرح حلية طالب العلم - ابن عثيمين.png",
+  "mukhtasar-minhaj": "مختصر منهاج القاصدين - ابن قدامة المقدسي.png",
+  "mukhtasar-minhaj-title": "مختصر منهاج القاصدين (العنوان فقط).png",
+  "sayd-al-khatir": "صيد الخاطر - ابن الجوزي.png",
+  "talbis-iblis": "تلبيس إبليس - ابن الجوزي.png",
+  "al-bidaya": "البداية والنهاية - ابن كثير.png",
+  "al-kamil": "الكامل في التاريخ - ابن الأثير.png",
+  "rijal-min-tarikh": "رجال من التاريخ - علي الطنطاوي.png",
+  "qisas-min-tarikh": "قصص من التاريخ - علي الطنطاوي.png",
+  "suwar-wa-khawatir": "صور وخواطر - علي الطنطاوي.png",
+  "rihlat-al-istiqama": "رحلة الاستقامة - راكان المغربي.png"
+};
+
 async function initApp() {
-  // تحميل صور الأقنعة (شعار أشير + مخطوطة مومياشي)
+  // تحميل صور الأقنعة (شعار أشير + مخطوطة مومياشي + مخطوطة الداء والدواء)
   const loadImg = (src) =>
     new Promise((resolve) => {
+      if (!src) return resolve(null);
       const img = new Image();
       img.onload = () => resolve(img);
       img.onerror = () => resolve(null);
       img.src = src;
     });
 
-  const [wadaqImg, sigImg, qrImg, mahabbaImg] = await Promise.all([
+  const [wadaqImg, sigImg, qrImg, mahabbaImg, bookDaaFullImg, bookDaaTitleImg] = await Promise.all([
     loadImg(WADAQ_LOGO_B64),
     loadImg(MOMIASHI_SIG_B64),
     loadImg(T1_QR_BADGE_B64),
-    loadImg(T1_MAHABBA_MASK_B64)
+    loadImg(T1_MAHABBA_MASK_B64),
+    loadImg(BOOK_DAA_WA_DAWAA_B64),
+    loadImg(BOOK_DAA_TITLE_ONLY_B64)
   ]);
   loadedImages.wadaqMask = wadaqImg;
   loadedImages.momiashiMask = sigImg;
   loadedImages.t1QrBadge = qrImg;
   loadedImages.t1MahabbaMask = mahabbaImg;
+  loadedImages.bookDaaFullMask = bookDaaFullImg;
+  loadedImages.bookDaaTitleMask = bookDaaTitleImg;
+  loadedImages.presetBooks = {};
+  loadedImages.presetBooksB64Fallback = {};
 
+  // التحميل المباشر من مجلد (assets/images/شعارات الكتب/المنجزة/) مع كسر الكاش حتى يظهر أي تعديل على الملفات فوراً
+  const cacheBust = Date.now();
+  const bookKeys = Object.keys(PRESET_BOOK_FILES);
+  await Promise.all(
+    bookKeys.map(async (k) => {
+      const fileUrl = encodeURI(`assets/images/شعارات الكتب/المنجزة/${PRESET_BOOK_FILES[k]}`) + `?v=${cacheBust}`;
+      const b64Fallback = window.ASHEER_BOOKS_B64 && window.ASHEER_BOOKS_B64[k] ? window.ASHEER_BOOKS_B64[k] : null;
+      if (b64Fallback) {
+        loadedImages.presetBooksB64Fallback[k] = await loadImg(b64Fallback);
+      }
+      const diskImg = await loadImg(fileUrl);
+      loadedImages.presetBooks[k] = diskImg || loadedImages.presetBooksB64Fallback[k] || null;
+    })
+  );
+  if (loadedImages.presetBooks["daa-wa-dawaa"]) {
+    loadedImages.bookDaaFullMask = loadedImages.presetBooks["daa-wa-dawaa"];
+  }
+
+  populateSavedBooksSelect();
+  enhanceAsheerDropboxes();
   syncInputsFromState();
   bindEvents();
   bindTopCardImageEvents();
@@ -2900,11 +3935,14 @@ async function initApp() {
   renderQuoteWordChips();
   requestRender();
 
-  // انتظار جاهزية جميع الخطوط (وخاصة خطوط ثمانية) ثم إعادة الرسم لضمان دقة القياسات
+  // انتظار جاهزية جميع الخطوط (وخاصة خطوط ثمانية وخط أميري لكتب التراث) ثم إعادة الرسم لضمان دقة القياسات
   await Promise.all([
     ensureFontLoaded(state.quoteFont, state.quoteWeight),
     ensureFontLoaded(state.bodyFont, state.bodyWeight),
-    ensureFontLoaded("Aref Ruqaa", "400")
+    ensureFontLoaded("Aref Ruqaa", "400"),
+    ensureFontLoaded("Amiri", "400"),
+    ensureFontLoaded("Amiri", "700"),
+    ensureFontLoaded("Ali Moshref Thulth", "700")
   ]);
 
   if (document.fonts) {
@@ -2926,7 +3964,7 @@ async function initApp() {
     ensureFontLoaded(fam, "400");
   });
 
-  // فحص ما إذا كان هناك قالب محدد في الرابط (e.g. ?template=1 أو 2 أو 3 أو 4)
+  // فحص ما إذا كان هناك قالب محدد في الرابط (e.g. ?template=1 أو 2 أو 3 أو 4 أو 5)
   const urlParams = new URLSearchParams(window.location.search);
   const requestedTemplate = urlParams.get("template");
   if (requestedTemplate) {
@@ -2944,6 +3982,8 @@ function applyPresetTemplateById(templateId) {
   const tpl = String(templateId || "4");
   state = getInitialState();
   loadedImages.topCardBg = null;
+  loadedImages.t5CustomStamp = null;
+  loadedImages.t5CustomStampMask = null;
   selectedWordKey = "0_0";
 
   if (tpl === "1") {
@@ -2989,7 +4029,6 @@ function applyPresetTemplateById(templateId) {
     state.t1FooterRight = "محبة";
     state.t1FooterCenter = "Lover";
     state.t1FooterLeftAr = "لأجلك";
-    state.t1ShowQr = true;
   } else if (tpl === "2") {
     // القالب الثاني: بطاقة الأبيات الشعرية والتصوير («من نعيم الدنيا»)
     state.activeTemplateId = "2";
@@ -3003,10 +4042,53 @@ function applyPresetTemplateById(templateId) {
     state.poet = "";
     state.bodyText =
       "في تأمّل المعنى وسكون النفس أمام عظمة البدايات، يتجلّى للإنسان جوهر ما كان يبحث عنه طويلاً في غمرة الحياة.";
+  } else if (tpl === "5") {
+    // القالب الخامس: قالب مقتبسات الكتب («الداء والدواء» — ابن قيم الجوزية)
+    state.activeTemplateId = "5";
+    state.bgColor = "#FFFFFF";
+    state.topCardColor = "#FFFFFF";
+    state.bottomCardColor = "#F8F6F1";
+    state.quoteTextColor = "#0F0F0F";
+    state.bodyTextColor = "#0F0F0F";
+    state.logoColor = "#0F0F0F";
+    state.logoMode = "none";
+    state.showTopOrnament = false;
+    state.showBottomOrnament = false;
+
+    state.quoteText = "الداء والدواء";
+    state.poet = "";
+    state.bodyFont = "Amiri";
+    state.bodyWeight = "400";
+    state.bodySize = 37;
+    state.bodyLineHeight = 1.62;
+    state.bodyWidth = 930;
+    state.bodyOffsetY = 0;
+    state.autoKashida = false;
+    state.bodySmartSwash = false;
+    state.extendedFatha = false;
+    state.bodyLastLineAlign = "right";
+    state.bodyText =
+      "قال يحيى بن معاذ: القلوب كالقدور تغلي بما فيها، وألسنتها مغارفها. فانظر الرجل(٢) حين يتكلّم، فإنّ لسانه يغترف(٣) لك مما في قلبه(٤): حلو وحامض، وعذب وأجاج، وغير ذلك. ويبين لك طعم قلبه اغترافُ لسانه(٥) .";
+
+    state.t5BookId = "daa-wa-dawaa";
+    state.t5StampMode = "full";
+    state.t5BookTitle = "الدَّاءُ وَالدَّوَاءُ";
+    state.t5BookSubtitle = "تأليف";
+    state.t5BookAuthor = "الإِمَامِ أَبِي عَبْدِ اللهِ مُحَمَّدِ بْنِ أَبِي بَكْرِ بْنِ أَيُّوبَ ابْنِ قَيِّمِ الجَوْزِيَّةِ";
+    state.t5BookYears = "( ٦٩١ - ٧٥١ )";
+    state.t5StampScale = 100;
+    state.t5StampY = 0;
+    state.t5FirstLineIndent = true;
   } else {
     // القالب الرابع: البطاقتين المتداخلتين («وكيف أغفى»)
     state.activeTemplateId = "4";
   }
+
+  // تحديث شريحة لوحة الألوان النشطة
+  const targetPalette = tpl === "1" ? "navy-slate" : tpl === "5" ? "paper-ink" : "emerald-sage";
+  document.querySelectorAll(".palette-chip").forEach((c) => {
+    c.classList.toggle("active", c.dataset.palette === targetPalette);
+  });
 
   // تحديث خيارات دقة التصدير في القائمة لتعكس أبعاد القالب النشط
   const exportSel = document.getElementById("exportScaleSelect");
