@@ -2140,7 +2140,7 @@ function updateWordInspectorPanel() {
    ========================================================================== */
 
 function updateArtboardZoom(newZoom) {
-  currentZoom = Math.min(1.2, Math.max(0.18, newZoom));
+  currentZoom = Math.min(1.2, Math.max(0.11, newZoom));
   const { W, H } = getArtboardDimensions();
   const wrapper = document.getElementById("artboardWrapper");
   const lbl = document.getElementById("lblZoomPercent");
@@ -2157,8 +2157,9 @@ function fitArtboardToViewport() {
   const viewport = document.getElementById("canvasViewport");
   if (!viewport) return;
   const { W, H } = getArtboardDimensions();
-  const availW = viewport.clientWidth - 48;
-  const availH = viewport.clientHeight - 48;
+  const pad = window.innerWidth <= 960 ? 20 : 48;
+  const availW = Math.max(140, viewport.clientWidth - pad);
+  const availH = Math.max(140, viewport.clientHeight - pad);
   const scaleX = availW / W;
   const scaleY = availH / H;
   updateArtboardZoom(Math.min(scaleX, scaleY));

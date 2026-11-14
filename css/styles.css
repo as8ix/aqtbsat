@@ -1375,47 +1375,210 @@ input[type="range"] {
    ========================================================================== */
 @media (max-width: 960px) {
   html, body {
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 100vw;
   }
 
   .topbar {
     height: auto;
     flex-wrap: wrap;
-    padding: 10px 14px;
-    gap: 10px;
+    padding: 10px 12px;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .topbar-brand {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .brand-info {
+    display: none;
   }
 
   .badge-pill {
     display: none;
   }
 
+  .topbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .topbar-actions > .field-group {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .topbar-actions > .field-group .asheer-dropbox-wrapper {
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  #btnResetDefault,
+  #btnSaveTemplate {
+    flex: 1 1 calc(50% - 4px);
+    justify-content: center;
+    min-width: 0;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .export-group {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+  }
+
+  .export-group .asheer-dropbox-wrapper {
+    flex: 1 1 auto;
+    min-width: 0 !important;
+    width: auto;
+  }
+
+  #btnExportPng {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
   .workspace {
     display: flex;
     flex-direction: column-reverse;
     height: auto;
-    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .preview-stage {
     position: sticky;
     top: 0;
     z-index: 15;
-    height: 48vh;
-    min-height: 330px;
+    width: 100%;
+    max-width: 100%;
+    height: 44vh;
+    min-height: 290px;
     border-bottom: 2px solid var(--border-subtle);
+  }
+
+  .stage-toolbar {
+    height: auto;
+    min-height: 40px;
+    padding: 6px 10px;
+    gap: 6px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .stage-status {
+    font-size: 11px;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  #lblStageDimensions {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .zoom-controls {
+    gap: 5px;
+    flex-shrink: 0;
   }
 
   .canvas-viewport {
     padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .sidebar {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     height: auto;
     border-left: none;
+    overflow: visible;
+  }
+
+  .sidebar-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    padding: 5px;
+    gap: 4px;
+  }
+
+  .tab-btn {
+    min-width: 0;
+    padding: 7px 4px;
+    font-size: 11px;
+  }
+
+  .tab-btn span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .sidebar-body {
-    overflow: visible;
+    overflow-y: visible;
+    overflow-x: hidden;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .control-card {
+    padding: 12px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .switch-row {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .switch-row > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .palette-grid,
+  .color-pickers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .field-row {
+    flex-wrap: wrap;
+  }
+
+  .field-row > .flex-1,
+  .field-row > .flex-2 {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .palette-grid {
+    grid-template-columns: 1fr;
   }
 }
