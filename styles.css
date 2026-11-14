@@ -229,7 +229,7 @@
 }
 
 /* ==========================================================================
-   متغيرات الواجهة والتصميم (استوديو وَدَق)
+   متغيرات الواجهة والتصميم (استوديو أَشِير)
    ========================================================================== */
 :root {
   --bg-app: #0d1512;
@@ -283,7 +283,57 @@ html, body {
 .topbar-brand {
   display: flex;
   align-items: center;
+  gap: 14px;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f5f1e8;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-back-home:hover {
+  background: rgba(23, 155, 97, 0.25);
+  border-color: #22c57e;
+  color: #22c57e;
+  transform: translateX(2px);
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
   gap: 12px;
+  background: linear-gradient(135deg, rgba(6, 45, 30, 0.95), rgba(13, 30, 23, 0.95));
+  padding: 6px 14px 6px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.brand-calligraphy-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+}
+
+.brand-name-en {
+  font-family: "Thmanyah Sans", system-ui, sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #c5a059;
+  text-transform: uppercase;
 }
 
 .brand-badge {
