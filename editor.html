@@ -100,10 +100,11 @@
     </div>
 
     <div class="topbar-actions">
-      <!-- مبدل القوالب السبعة السريع -->
+      <!-- مبدل القوالب الثمانية السريع -->
       <div class="field-group" style="margin:0;">
         <select id="selectTemplatePreset" class="asheer-dropbox export-scale-select" title="التبديل بين القوالب التحريرية الجاهزة" style="font-weight:700;">
           <option value="4">القالب ٤: البطاقتين («وكيف أغفى»)</option>
+          <option value="8">القالب ٨: قصيدة الصدر والعجز («دع ما يضرك»)</option>
           <option value="7">القالب ٧: نص بسيط في المنتصف («مقولة وسطية»)</option>
           <option value="6">القالب ٦: قصيدة البلاغة العمودية («والمرء لا تشقيه»)</option>
           <option value="1">القالب ١: الكحلي المصمت («ليس لشيء»)</option>
@@ -202,6 +203,53 @@
               </div>
             </div>
 
+            <!-- حقل عنوان القصيدة العلوي (خاص بالقالب ٨) -->
+            <div class="control-card highlight-card hidden" id="t8HeaderMainGroup" style="margin-bottom:14px; background:rgba(213, 155, 62, 0.08); border:1px solid rgba(213, 155, 62, 0.3); padding:12px 14px;">
+              <div class="card-header" style="margin-bottom:10px;">
+                <span class="step-num" style="font-size:16px;">🏷️</span>
+                <div>
+                  <h4 style="margin:0; font-size:15px; color:var(--accent-bright);">عنوان القصيدة (الترويسة العلوية)</h4>
+                  <p style="margin:2px 0 0; font-size:12px; color:var(--text-muted);">اكتب عنوان القصيدة أو اختر المخطوطة الأصلية مع التحكم بالخط والحجم والموضع</p>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="inputT8HeaderText_main">نص العنوان العلوي</label>
+                  <input type="text" id="inputT8HeaderText_main" value="دَعْ مَا يَضُرُّكَ وَالتَمِسْ مَا يَنْفَعُ" placeholder="اكتب عنوان القصيدة هنا..." />
+                </div>
+                <div class="field-group" style="width:190px;">
+                  <label for="selectT8HeaderMode_main">نمط الترويسة</label>
+                  <select id="selectT8HeaderMode_main" class="asheer-dropbox">
+                    <option value="custom-text" selected>✍️ نص بالخط العربي</option>
+                    <option value="manuscript">🖼️ المخطوطة الأصلية</option>
+                    <option value="none">بدون عنوان</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="selectT8HeaderFont_main">خط العنوان</label>
+                  <select id="selectT8HeaderFont_main" class="asheer-dropbox">
+                    <option value="A Suls" selected>خط الثلث الكلاسيكي (A Suls)</option>
+                    <option value="Thmanyah Serif Display">ثمانية للعناوين</option>
+                    <option value="Basmalah">خط البسملة والديواني</option>
+                    <option value="Tharwat Emara Ruqaa">خط الرقعة التراثي</option>
+                    <option value="Amiri">خط أميري (نسخ فاخر)</option>
+                  </select>
+                </div>
+                <div class="field-group" style="width:140px;">
+                  <label for="rangeT8HeaderSize_main">الحجم (<span id="valT8HeaderSize_main">68</span>px)</label>
+                  <input type="range" id="rangeT8HeaderSize_main" min="36" max="120" value="68" />
+                </div>
+                <div class="field-group" style="width:140px;">
+                  <label for="rangeT8HeaderOffsetY_main">الموضع الرأسي (<span id="valT8HeaderOffsetY_main">0</span>px)</label>
+                  <input type="range" id="rangeT8HeaderOffsetY_main" min="-120" max="120" value="0" />
+                </div>
+              </div>
+            </div>
+
             <div class="field-group">
               <div class="label-with-action">
                 <label for="inputQuote">نص البيت أو المقولة الرئيسية</label>
@@ -256,6 +304,48 @@
               <div class="field-group flex-1" id="poetLineGroup">
                 <label for="rangePoetLine">طول الخط بجانب القائل (<span id="valPoetLine">340</span>px)</label>
                 <input type="range" id="rangePoetLine" min="0" max="520" value="340" />
+              </div>
+            </div>
+
+            <!-- حقل التوقيع والتذييل السفلي (خاص بالقالب ٨) -->
+            <div class="control-card highlight-card hidden" id="t8FooterMainGroup" style="margin-top:14px; background:rgba(30, 31, 36, 0.08); border:1px solid rgba(255, 255, 255, 0.1); padding:12px 14px;">
+              <div class="card-header" style="margin-bottom:10px;">
+                <span class="step-num" style="font-size:16px;">✍️</span>
+                <div>
+                  <h4 style="margin:0; font-size:15px; color:var(--accent-bright);">التوقيع والتذييل السفلي للقصيدة</h4>
+                  <p style="margin:2px 0 0; font-size:12px; color:var(--text-muted);">توثيق اسم الشاعر والخطاط أو حسابك وتاريخ اللوحة أو ختمها</p>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="inputT8FooterRight_main">سطر التوثيق (الشاعر والخطاط)</label>
+                  <input type="text" id="inputT8FooterRight_main" value="مِنْ شِعْرِ أَحْمَد شَوْقِي وَخَطِّ مُحَمَّد مَطَر" placeholder="مثال: مِنْ شِعْرِ أَحْمَد شَوْقِي" />
+                </div>
+                <div class="field-group" style="width:160px;">
+                  <label for="inputT8FooterDate_main">التاريخ / الختم</label>
+                  <input type="text" id="inputT8FooterDate_main" value="١٤٤٠ هـ" placeholder="١٤٤٠ هـ أو @حسابك" />
+                </div>
+                <div class="field-group" style="width:190px;">
+                  <label for="selectT8FooterMode_main">نمط التوقيع</label>
+                  <select id="selectT8FooterMode_main" class="asheer-dropbox">
+                    <option value="custom-text" selected>✍️ نص توثيقي حر</option>
+                    <option value="manuscript">🖼️ المخطوطة الأصلية</option>
+                    <option value="athar-logo">شعار «أثر» الذهبي</option>
+                    <option value="none">بدون تذييل</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group flex-1">
+                  <label for="rangeT8FooterScale_main">حجم التوقيع (<span id="valT8FooterScale_main">100</span>%)</label>
+                  <input type="range" id="rangeT8FooterScale_main" min="50" max="180" value="100" />
+                </div>
+                <div class="field-group flex-1">
+                  <label for="rangeT8FooterOffsetY_main">موضع التوقيع الرأسي (<span id="valT8FooterOffsetY_main">0</span>px)</label>
+                  <input type="range" id="rangeT8FooterOffsetY_main" min="-120" max="120" value="0" />
+                </div>
               </div>
             </div>
           </div>
@@ -600,6 +690,143 @@
               </div>
               <input type="checkbox" id="chkT7ShowFrame" />
             </label>
+          </div>
+
+          <!-- لوحة إعدادات القالب ٨ (قصيدة الصدر والعجز: «دع ما يضرك والتمس ما ينفع») -->
+          <div class="control-card highlight-card hidden" id="template8ControlsCard">
+            <div class="card-header">
+              <span class="step-num">📜</span>
+              <div>
+                <h3>إعدادات لوحة القصيدة (صدر وعجز)</h3>
+                <p>التحكم بترويسة العنوان، موازنة الشطور، الورق المعتّق، والتذييل التوثيقي</p>
+              </div>
+            </div>
+
+            <!-- الترويسة العلوية -->
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectT8HeaderMode">ترويسة العنوان العلوي</label>
+                <select id="selectT8HeaderMode" class="asheer-dropbox">
+                  <option value="manuscript" selected>المخطوطة الأصلية («دَعْ مَا يَضُرُّكَ»)</option>
+                  <option value="custom-text">نص مخصص بالخط العربي</option>
+                  <option value="none">بدون ترويسة (القصيدة فقط)</option>
+                </select>
+              </div>
+              <div class="field-group flex-1" id="t8HeaderFontGroup">
+                <label for="selectT8HeaderFont">خط الترويسة</label>
+                <select id="selectT8HeaderFont" class="asheer-dropbox">
+                  <option value="A Suls" selected>خط الثلث الكلاسيكي (A Suls)</option>
+                  <option value="Thmanyah Serif Display">ثمانية للعناوين</option>
+                  <option value="Basmalah">خط البسملة والديواني</option>
+                  <option value="Tharwat Emara Ruqaa">خط الرقعة التراثي</option>
+                  <option value="Amiri">خط أميري (نسخ فاخر)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group" id="t8HeaderTextGroup">
+              <label for="inputT8HeaderText">نص الترويسة العلوية</label>
+              <input type="text" id="inputT8HeaderText" value="دَعْ مَا يَضُرُّكَ وَالتَمِسْ مَا يَنْفَعُ" />
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeT8HeaderSize">حجم الترويسة (<span id="valT8HeaderSize">68</span>px)</label>
+                <input type="range" id="rangeT8HeaderSize" min="40" max="110" value="68" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT8HeaderOffsetY">إزاحة الترويسة (<span id="valT8HeaderOffsetY">0</span>px)</label>
+                <input type="range" id="rangeT8HeaderOffsetY" min="-100" max="100" value="0" />
+              </div>
+            </div>
+
+            <!-- هندسة الشطور والأعمدة -->
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeT8ColGap">المسافة بين الشطرين (<span id="valT8ColGap">140</span>px)</label>
+                <input type="range" id="rangeT8ColGap" min="60" max="260" value="140" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT8ColWidth">عرض الشطر (<span id="valT8ColWidth">400</span>px)</label>
+                <input type="range" id="rangeT8ColWidth" min="300" max="460" value="400" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeT8LineSpacing">المسافة بين الأبيات (<span id="valT8LineSpacing">78</span>px)</label>
+                <input type="range" id="rangeT8LineSpacing" min="50" max="120" value="78" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="selectT8CenterDivider">فاصل أوسط بين الشطرين</label>
+                <select id="selectT8CenterDivider" class="asheer-dropbox">
+                  <option value="none" selected>بدون فاصل (فراغ أنيق)</option>
+                  <option value="star">نجمة زخرفية (✦)</option>
+                  <option value="dot">نقطة دائرية (•)</option>
+                  <option value="asterism">نجمية ثلاثية (⁂)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectT8AspectRatio">مقاس اللوحة</label>
+                <select id="selectT8AspectRatio" class="asheer-dropbox">
+                  <option value="parchment" selected>المخطوطة الأصلية (1080×1560)</option>
+                  <option value="portrait">بورتريه إنستغرام (1080×1350)</option>
+                  <option value="story">ستوري سناب وريلز (1080×1920)</option>
+                  <option value="square">مربع (1080×1080)</option>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT6PoemOffsetY_t8">إزاحة الأبيات عمودياً (<span id="valT6PoemOffsetY_t8">0</span>px)</label>
+                <input type="range" id="rangeT6PoemOffsetY_t8" min="-200" max="200" value="0" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <label class="toggle-chip flex-1" style="justify-content:space-between; padding:10px 12px;">
+                <span>موازنة ومد الشطور تلقائياً (Justify)</span>
+                <input type="checkbox" id="chkT8JustifyLines" checked />
+              </label>
+              <label class="toggle-chip flex-1" style="justify-content:space-between; padding:10px 12px;">
+                <span>تعتيق الورق التراثي والمخطوطة</span>
+                <input type="checkbox" id="chkT8PaperTexture" checked />
+              </label>
+            </div>
+
+            <!-- التذييل السفلي والتوقيع -->
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectT8FooterMode">نمط التذييل والتوقيع السفلي</label>
+                <select id="selectT8FooterMode" class="asheer-dropbox">
+                  <option value="manuscript" selected>المخطوطة الأصلية («شوقي ومطر ١٤٤٠ هـ»)</option>
+                  <option value="custom-text">نص توثيقي حر + تاريخ أو حساب</option>
+                  <option value="athar-logo">شعار «أثر» المعتمد (الزمردي والريشة)</option>
+                  <option value="none">بدون تذييل</option>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT8FooterScale">حجم التذييل (<span id="valT8FooterScale">100</span>%)</label>
+                <input type="range" id="rangeT8FooterScale" min="50" max="160" value="100" />
+              </div>
+            </div>
+
+            <div class="field-row" id="t8CustomFooterRow">
+              <div class="field-group flex-1">
+                <label for="inputT8FooterRight">سطر التوثيق</label>
+                <input type="text" id="inputT8FooterRight" value="مِنْ شِعْرِ أَحْمَد شَوْقِي وَخَطِّ مُحَمَّد مَطَر" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="inputT8FooterDate">التاريخ أو الختم</label>
+                <input type="text" id="inputT8FooterDate" value="١٤٤٠ هـ" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="rangeT8FooterOffsetY">إزاحة التذييل عمودياً (<span id="valT8FooterOffsetY">0</span>px)</label>
+              <input type="range" id="rangeT8FooterOffsetY" min="-120" max="120" value="0" />
+            </div>
           </div>
 
           <!-- لوحة إعدادات القالب ١ (الكرت الكحلي المصمت: «ليس لشيء») -->
@@ -1006,6 +1233,16 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#882226" title="لون التمييز: قرمزي كلاسيكي"></i>
                 </span>
                 <span>مخطوطة البلاغة</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="parchment-shawqi">
+                <span class="pal-swatches">
+                  <i style="background:#F5EEDB"></i>
+                  <i style="background:#1E1F24"></i>
+                  <i style="background:#EBE2CD"></i>
+                  <i style="background:#9B2226" title="لون التمييز: قرمزي كلاسيكي"></i>
+                </span>
+                <span>مخطوطة الشوقيات</span>
               </button>
             </div>
 
