@@ -100,10 +100,12 @@
     </div>
 
     <div class="topbar-actions">
-      <!-- مبدل القوالب الخمسة السريع -->
+      <!-- مبدل القوالب السبعة السريع -->
       <div class="field-group" style="margin:0;">
         <select id="selectTemplatePreset" class="asheer-dropbox export-scale-select" title="التبديل بين القوالب التحريرية الجاهزة" style="font-weight:700;">
           <option value="4">القالب ٤: البطاقتين («وكيف أغفى»)</option>
+          <option value="7">القالب ٧: نص بسيط في المنتصف («مقولة وسطية»)</option>
+          <option value="6">القالب ٦: قصيدة البلاغة العمودية («والمرء لا تشقيه»)</option>
           <option value="1">القالب ١: الكحلي المصمت («ليس لشيء»)</option>
           <option value="5">القالب ٥: مقتبسات الكتب («الداء والدواء»)</option>
           <option value="2">القالب ٢: صورة وأبيات («من نعيم الدنيا»)</option>
@@ -209,16 +211,26 @@
 بليلٍ تسمَرينَ بهِ</textarea>
             </div>
 
-            <!-- مشكّل كلمات العنوان التفاعلي (ميزة خط ثمانية الحصرية) -->
+            <!-- مشكّل كلمات العنوان التفاعلي (ميزة خط ثمانية وتلوين الكلمات) -->
             <div class="word-shaper-box">
               <div class="shaper-header">
-                <span class="shaper-title">✨ لمسات خط ثمانية لكل كلمة في العنوان:</span>
-                <span class="shaper-hint">اضغط على أي كلمة لتفعيل (حرف مرسل) أو (كشيدة مائلة)</span>
+                <span class="shaper-title">✨ تشكيل وتلوين كل كلمة في الأبيات / العنوان:</span>
+                <span class="shaper-hint">اضغط على أي كلمة لتلوينها باللون المميز أو تفعيل (حرف مرسل) أو (كشيدة)</span>
               </div>
               <div id="quoteWordChips" class="word-chips-container"></div>
               <div id="wordInspectorPanel" class="word-inspector-panel hidden">
                 <div class="inspector-word-Preview" id="inspectorWordLabel">الكلمة</div>
                 <div class="inspector-controls">
+                  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; width:100%;">
+                    <label class="toggle-chip" style="flex:1; min-width:170px;">
+                      <input type="checkbox" id="chkWordHighlight" />
+                      <span id="lblWordHighlightToggle" style="font-weight:700;">🎨 تلوين الكلمة بالحبر المميز</span>
+                    </label>
+                    <div class="color-input-wrap" style="width:128px; flex-shrink:0;" title="اختر اللون المميز للكلمة">
+                      <input type="color" id="colorInspectorHighlight" value="#D59B3E" />
+                      <input type="text" id="hexInspectorHighlight" value="#D59B3E" dir="ltr" />
+                    </div>
+                  </div>
                   <label class="toggle-chip">
                     <input type="checkbox" id="chkWordSwash" />
                     <span>حرف مرسل / كاف مبسوطة (ss01)</span>
@@ -249,7 +261,7 @@
           </div>
 
           <!-- البطاقة السفلية: الشرح / المتن -->
-          <div class="control-card">
+          <div class="control-card" id="step2ControlCard">
             <div class="card-header">
               <span class="step-num">٢</span>
               <div>
@@ -438,6 +450,155 @@
                 <small>إزاحة بداية السطر الأول من الفقرة قليلاً لليسار كما في الكتب التراثية</small>
               </div>
               <input type="checkbox" id="chkT5FirstLineIndent" checked />
+            </label>
+          </div>
+
+          <!-- لوحة إعدادات القالب ٦ (قصيدة البلاغة العمودية: «والمرء لا تشقيه إلا نفسه») -->
+          <div class="control-card highlight-card hidden" id="template6ControlsCard">
+            <div class="card-header">
+              <span class="step-num">📜</span>
+              <div>
+                <h3>إعدادات لوحة القصيدة العمودية («بلاغة»)</h3>
+                <p>التحكم بلون الحبر المميز، موازنة الشطور، الورق المعتّق، والتوقيع السفلي</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="color-field flex-1">
+                <label>لون الكلمات المميزة والفاصل</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorT6Highlight" value="#882226" />
+                  <input type="text" id="hexT6Highlight" value="#882226" dir="ltr" />
+                </div>
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT6PoemOffsetY">الموضع العمودي للقصيدة (<span id="valT6PoemOffsetY">0</span>px)</label>
+                <input type="range" id="rangeT6PoemOffsetY" min="-220" max="220" value="0" />
+              </div>
+            </div>
+
+            <div class="toggle-list">
+              <label class="switch-row">
+                <div>
+                  <strong>موازنة عرض الشطور كعمود متراص</strong>
+                  <small>يجعل جميع أسطر القصيدة تبدأ وتنتهي على خط عمودي واحد متناسق كما في اللوحة الأصلية</small>
+                </div>
+                <input type="checkbox" id="chkT6JustifyLines" checked />
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>تأثير الورق العاجي المعتّق (Paper Texture)</strong>
+                  <small>يضيف ملمس الورق الطبيعي الناعم وتعتيق الحواف الخفيف للخلفية</small>
+                </div>
+                <input type="checkbox" id="chkT6PaperTexture" checked />
+              </label>
+            </div>
+
+            <div class="shaper-title" style="margin-top:4px;">🖋️ التوقيع والختم السفلي (أسفل القصيدة)</div>
+
+            <div class="field-row">
+              <div class="field-group flex-2">
+                <label for="selectT6FooterMode">نمط التوقيع السفلي</label>
+                <select id="selectT6FooterMode" class="asheer-dropbox">
+                  <option value="balagha-shawqi" selected>المخطوطة الأصلية (ختم الخطاط | بَلَاغَة)</option>
+                  <option value="asheer-balagha">هوية أَشِير (شعار أَشِير | بَلَاغَة)</option>
+                  <option value="custom-text">كتابة نص أو شاعر (يمين | يسار)</option>
+                  <option value="custom-stamp">رفع ختم/شعار خاص + عنوان يسار الفاصل</option>
+                  <option value="none">إخفاء التوقيع السفلي</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row hidden" id="t6FooterTextFields">
+              <div class="field-group flex-1">
+                <label for="inputT6FooterRight">النص الأيمن (يمين الفاصل)</label>
+                <input type="text" id="inputT6FooterRight" value="أَشِير" placeholder="مثال: شوقي / أَشِير" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="inputT6FooterLeft">النص الأيسر (يسار الفاصل)</label>
+                <input type="text" id="inputT6FooterLeft" value="بَلَاغَة" placeholder="مثال: بَلَاغَة" />
+              </div>
+            </div>
+
+            <div class="field-group hidden" id="t6FooterUploadGroup" style="background: rgba(25, 169, 116, 0.06); border: 1px dashed var(--border-highlight); border-radius: 10px; padding: 10px;">
+              <div class="label-with-action" style="margin-bottom: 6px;">
+                <label style="color: var(--accent-bright); font-weight: 700;">🖼️ صورة الختم / الشعار الأيمن</label>
+                <button type="button" id="btnRemoveT6Stamp" class="mini-btn hidden" style="color:#f87171; border-color:rgba(248,113,113,0.3);">✕ حذف الختم</button>
+              </div>
+              <label for="inputT6StampUpload" class="btn btn-outline-full" style="margin:0;">
+                <span>+ اختر صورة ختم أو توقيع من جهازك (مع تفريغ الخلفية تلقائياً)</span>
+              </label>
+              <input type="file" id="inputT6StampUpload" accept="image/*" hidden />
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="rangeT6FooterScale">حجم التوقيع السفلي (<span id="valT6FooterScale">100</span>%)</label>
+                <input type="range" id="rangeT6FooterScale" min="50" max="180" value="100" />
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT6FooterOffsetY">موضع التوقيع العمودي (<span id="valT6FooterOffsetY">0</span>px)</label>
+                <input type="range" id="rangeT6FooterOffsetY" min="-140" max="80" value="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- لوحة إعدادات القالب ٧ (قالب النص البسيط في المنتصف) -->
+          <div class="control-card highlight-card hidden" id="template7ControlsCard">
+            <div class="card-header">
+              <span class="step-num">🎯</span>
+              <div>
+                <h3>إعدادات القالب البسيط (نص في المنتصف)</h3>
+                <p>تصميم مباشر ونظيف يركز على النص في وسط الصورة بدون تعقيد</p>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectT7AspectRatio">مقاس الصورة</label>
+                <select id="selectT7AspectRatio" class="asheer-dropbox">
+                  <option value="square" selected>مربع (1080×1080)</option>
+                  <option value="portrait">بورتريه (1080×1350)</option>
+                  <option value="story">ستوري (1080×1920)</option>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="selectT7TextAlign">محاذاة النص في الوسط</label>
+                <select id="selectT7TextAlign" class="asheer-dropbox">
+                  <option value="center" selected>توسيط الأسطر (Center)</option>
+                  <option value="justify">مشدود الأطراف (Justify)</option>
+                  <option value="right">محاذاة لليمين</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group flex-1">
+                <label for="selectT7LogoPos">موضع شعار «أثر»</label>
+                <select id="selectT7LogoPos" class="asheer-dropbox">
+                  <option value="bottom-center" selected>أسفل الوسط (معتمد)</option>
+                  <option value="top-right">أعلى اليمين</option>
+                  <option value="none">بدون شعار نهائياً</option>
+                </select>
+              </div>
+              <div class="field-group flex-1">
+                <label for="rangeT7LogoScale">حجم شعار «أثر» (<span id="valT7LogoScale">100</span>%)</label>
+                <input type="range" id="rangeT7LogoScale" min="50" max="180" value="100" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="rangeT7OffsetY">إزاحة النص عمودياً (<span id="valT7OffsetY">0</span>px)</label>
+              <input type="range" id="rangeT7OffsetY" min="-260" max="260" value="0" />
+            </div>
+
+            <label class="switch-row">
+              <div>
+                <strong>إطار داخلي ناعم حول الصورة</strong>
+                <small>خط رفيع أنيق على أطراف اللوحة (يمكنك إيقافه لخلفية صافية تماماً)</small>
+              </div>
+              <input type="checkbox" id="chkT7ShowFrame" />
             </label>
           </div>
 
@@ -659,12 +820,12 @@ in His gardens—that is my joy, O you whom I love</textarea>
               </div>
               <div class="field-group flex-1">
                 <label for="rangeQuoteWidth">عرض كتلة البيت (<span id="valQuoteWidth">720</span>px)</label>
-                <input type="range" id="rangeQuoteWidth" min="500" max="860" value="720" />
+                <input type="range" id="rangeQuoteWidth" min="420" max="920" value="720" />
               </div>
             </div>
           </div>
 
-          <div class="control-card">
+          <div class="control-card" id="fontBodyControlCard">
             <div class="card-header">
               <span class="step-num">ب</span>
               <div>
@@ -729,19 +890,19 @@ in His gardens—that is my joy, O you whom I love</textarea>
               <label for="rangeBodyWidth">عرض عمود الفقرة (<span id="valBodyWidth">742</span>px)</label>
               <input type="range" id="rangeBodyWidth" min="520" max="860" value="742" />
             </div>
+          </div>
 
-            <!-- رفع خط مخصص من الجهاز أو الجوال -->
-            <div class="upload-font-bar">
-              <label for="inputFontUpload" class="btn btn-outline-full">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="17 8 12 3 7 8" />
-                  <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
-                <span>+ رفع ملف خط إضافي من جهازك (TTF / OTF / WOFF2)</span>
-              </label>
-              <input type="file" id="inputFontUpload" accept=".ttf,.otf,.woff,.woff2" hidden />
-            </div>
+          <!-- رفع خط مخصص من الجهاز أو الجوال -->
+          <div class="upload-font-bar">
+            <label for="inputFontUpload" class="btn btn-outline-full">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              <span>+ رفع ملف خط إضافي من جهازك (TTF / OTF / WOFF2)</span>
+            </label>
+            <input type="file" id="inputFontUpload" accept=".ttf,.otf,.woff,.woff2" hidden />
           </div>
         </section>
 
@@ -762,8 +923,19 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#F5F1E8"></i>
                   <i style="background:#023222"></i>
                   <i style="background:#5C7265"></i>
+                  <i style="background:#D4AF37" title="لون التمييز: ذهبي"></i>
                 </span>
                 <span>أخضر وَدَق الأصلي</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="athar-cream">
+                <span class="pal-swatches">
+                  <i style="background:#FAF8F4"></i>
+                  <i style="background:#01322A"></i>
+                  <i style="background:#F2EFE9"></i>
+                  <i style="background:#D59B3E" title="لون التمييز: ذهبي أثر"></i>
+                </span>
+                <span>أثر التحريرية</span>
               </button>
 
               <button type="button" class="palette-chip" data-palette="navy-slate">
@@ -771,6 +943,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#F2EFE9"></i>
                   <i style="background:#1F2F42"></i>
                   <i style="background:#4A5D73"></i>
+                  <i style="background:#E5A93C" title="لون التمييز: كهرماني"></i>
                 </span>
                 <span>كحلي "ليس لشيء"</span>
               </button>
@@ -780,6 +953,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#F4F2EC"></i>
                   <i style="background:#1B2A1E"></i>
                   <i style="background:#6B7766"></i>
+                  <i style="background:#D8A243" title="لون التمييز: ذهبي دافئ"></i>
                 </span>
                 <span>زيتوني دافئ</span>
               </button>
@@ -789,6 +963,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#F6F1EB"></i>
                   <i style="background:#3B141A"></i>
                   <i style="background:#7A5458"></i>
+                  <i style="background:#EAA55D" title="لون التمييز: عسلي"></i>
                 </span>
                 <span>عنابي كلاسيكي</span>
               </button>
@@ -798,6 +973,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#F3F1ED"></i>
                   <i style="background:#181B1A"></i>
                   <i style="background:#575E5B"></i>
+                  <i style="background:#22C57E" title="لون التمييز: زمردي"></i>
                 </span>
                 <span>فحمي ثمانية</span>
               </button>
@@ -807,6 +983,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#071F16"></i>
                   <i style="background:#0F3B29"></i>
                   <i style="background:#F5F1E8"></i>
+                  <i style="background:#38EF7D" title="لون التمييز: أخضر نيون"></i>
                 </span>
                 <span>ليلي معكوس</span>
               </button>
@@ -816,8 +993,19 @@ in His gardens—that is my joy, O you whom I love</textarea>
                   <i style="background:#FFFFFF"></i>
                   <i style="background:#F9F6F0"></i>
                   <i style="background:#0F0F0F"></i>
+                  <i style="background:#991B1B" title="لون التمييز: أحمر قرمزي"></i>
                 </span>
                 <span>ورق كتاب وحبر أسود</span>
+              </button>
+
+              <button type="button" class="palette-chip" data-palette="parchment-balagha">
+                <span class="pal-swatches">
+                  <i style="background:#F6F3EE"></i>
+                  <i style="background:#233452"></i>
+                  <i style="background:#EDE8DF"></i>
+                  <i style="background:#882226" title="لون التمييز: قرمزي كلاسيكي"></i>
+                </span>
+                <span>مخطوطة البلاغة</span>
               </button>
             </div>
 
@@ -851,6 +1039,14 @@ in His gardens—that is my joy, O you whom I love</textarea>
                 <div class="color-input-wrap">
                   <input type="color" id="colorQuoteText" value="#F5F1E8" />
                   <input type="text" id="hexQuoteText" value="#F5F1E8" dir="ltr" />
+                </div>
+              </div>
+
+              <div class="color-field" id="colorHighlightField">
+                <label id="lblColorHighlight">لون الكلمات المميزة (الحبر المميز)</label>
+                <div class="color-input-wrap">
+                  <input type="color" id="colorHighlight" value="#D4AF37" />
+                  <input type="text" id="hexHighlight" value="#D4AF37" dir="ltr" />
                 </div>
               </div>
 
@@ -1014,6 +1210,7 @@ in His gardens—that is my joy, O you whom I love</textarea>
                 <label for="selectLogoMode">نوع الشعار الأساسي (الأول)</label>
                 <select id="selectLogoMode" class="asheer-dropbox">
                   <option value="wadaq-mask" selected>شعار "أَشِير" المعتمد (النموذج الهندسي التحريري)</option>
+                  <option value="athar-logo">شعار "أثر" المعتمد (مع الريشة الذهبية)</option>
                   <option value="custom-text">نص مخصص بخط عربي</option>
                   <option value="custom-image">شعار مخصص مرفوع (PNG / SVG)</option>
                   <option value="none">إخفاء الشعار</option>
